@@ -6,5 +6,6 @@ temp/*
 *.out
 *.bak
 *.sav
+*.tmp
 
 /papers/
