@@ -39,17 +39,23 @@
 Für den Begriff des autonomen oder automatisierten Fahrens gibt es mehrere Definitionen, die sich jedoch im Kern gleichen.
 2013 definierte die \ac{NHTSA} folgende 5 Stufen\cite{NHTSA2013}:
 \begin{enumerate}
-  \setcounter{enumi}{0}
-  \item \emph{No-Automation.} Der Fahrer hat volle Kontrolle über das Fahrzeug. Dies gillt auch wenn das Fahrzeug über Warnsysteme, wie eine Kollisionswarnung verfügt. Sekundäre Systeme wie Scheibenwischer, Blinklichter, Beleuchtung gelten ebenfalls als Level 0.
-  \item \emph{Function-specific Automation.}
+  \setcounter{enumi}{-1}
+  \item \emph{No-Automation:} Der Fahrer hat volle Kontrolle über das Fahrzeug. Dies gillt auch wenn das Fahrzeug über Warnsysteme, wie eine Kollisionswarnung verfügt. Sekundäre Systeme wie Scheibenwischer, Blinklichter, Beleuchtung gelten ebenfalls als Level 0.
+  \item \emph{Function-specific Automation:} Die fahrende Person kann teilweise die Kontrolle über einzelne System dem Fahrzeug überlassen. Beispiele für solche Systeme sind das \ac{abs}, welches die ultimative Kontrolle beim Fahrer belässt, aber in den Bremsprozess eingreift und der Spurhalteassistent, welcher nur leicht in den Lenkprozess eingreift, aber jederzeit von der fahrenden Person überschrieben werden kann.
+  \item \emph{Combined Function Automation:} Ab dieser Stufe können auch die primären Funktionen vollständig vom Fahrzeug übernommen werden, allerdings muss die fahrzeugführende Person jeder Zeit bereit sein in das Fahrgeschehen einzugreifen.
+  \item \emph{Limited Self-Driving Automation:} Der/Die Fahrer:in kann zeitweise, unter den korrekten Bedingungen, wie z.B. eine Autobahn bei guter Sichtbarkeit, die komplette Kontrolle über das System abgeben. Sollte sich ein Hindernis ankündigen, dass nicht von dem autonomen System übernommen werden kann, wird die fahrende Person benachrichtigt und hat eine gewisse Zeitspanne zur Verfügung um sich mit der Verkehrssituation vertraut zu machen, bevor die Kontrolle vom autonomen System abgegeben wird.
+  \item \emph{Full Self-Driving Automation:} Das Fahrzeug kann die komplette Kontrolle übernehmen ohne das eine Person in das Fahrgeschehen eingreifen können muss. Diese gibt nur noch das Ziel an.
 \end{enumerate}
 
 Die \ac{BAST} unterscheidet 3 Kategorien\cite{bast2021}:
 
 \begin{itemize}
-  \item \emph{Assistierter Modus.} Gleicht dem Level 1 der Definition der \ac{NHTSA}. In Einzelheiten kann ein automatisiertes System unterstützen, jedoch nie volle Kontrolle über das System ausüben.
-  \item \emph{Automatisierter Modus.}
+  \item \emph{Assistierter Modus:} Gleicht dem Level 1 der Definition der \ac{NHTSA}. In Einzelheiten kann ein automatisiertes System unterstützen, jedoch nie volle Kontrolle über das System ausüben.
+  \item \emph{Automatisierter Modus:} Equivalent zu Level 2 der Definition der \ac{NHTSA}.
+  \item \emph{Autonomer Modus:} Entspricht Level 5 der \ac{NHTSA} Definition.
 \end{itemize}
+
+Die Kategorien der \ac{BAST} wurden von der \ac{sae} weiterentwickelt \cite{bast2021} und unterscheidet sich im wesentlichen von der Definition der \ac{NHTSA} dadurch, dass zwischen Stufe 3 und 4 noch eine weitere hinzugefügt wurde, die es nur unter bestimmten Konditionen erlaubt die Kontrolle vollständig abzugeben\cite{SAE2021}.
 
 \section{Aufbau eines mordernen Fahrzeuges}
 \subsection{Interne Kommunikation}
@@ -62,10 +68,10 @@ Für die interne Kommunikation in einem Fahrzeug wird ein BUS verwendet
 \addcontentsline{toc}{section}{Abkürzungen}
 
 \begin{acronym}[IEEE]
-  \acro{ABK}{Abkürzung}
-  \acro{PDF}{Portable Document Format}
+  \acro{abs}[ABS]{Anti-lock braking system}
   \acro{BAST}[BASt]{Bundesanstalt für Straßenwesen}
   \acro{NHTSA}{National Highway Traffic Safety Administration}
+  \acro{sae}[SAE]{SAE International}
 \end{acronym}
 
 % Literaturverzeichnis
