@@ -35,10 +35,26 @@
 {\small\tableofcontents}
 
 \section{Einleitung}
-\section{Angriffe auf Autonome Fahrzeuge}
-\subsection{Physish}
-\subsection{Intern Digital}
-\subsection{Extern Digital}
+\section{Automatisiertes/Autonomes Fahren}
+Für den Begriff des autonomen oder automatisierten Fahrens gibt es mehrere Definitionen, die sich jedoch im Kern gleichen.
+2013 definierte die \ac{NHTSA} folgende 5 Stufen\cite{NHTSA2013}:
+\begin{enumerate}
+  \setcounter{enumi}{0}
+  \item \emph{No-Automation.} Der Fahrer hat volle Kontrolle über das Fahrzeug. Dies gillt auch wenn das Fahrzeug über Warnsysteme, wie eine Kollisionswarnung verfügt. Sekundäre Systeme wie Scheibenwischer, Blinklichter, Beleuchtung gelten ebenfalls als Level 0.
+  \item \emph{Function-specific Automation.}
+\end{enumerate}
+
+Die \ac{BAST} unterscheidet 3 Kategorien\cite{bast2021}:
+
+\begin{itemize}
+  \item \emph{Assistierter Modus.} Gleicht dem Level 1 der Definition der \ac{NHTSA}. In Einzelheiten kann ein automatisiertes System unterstützen, jedoch nie volle Kontrolle über das System ausüben.
+  \item \emph{Automatisierter Modus.}
+\end{itemize}
+
+\section{Aufbau eines mordernen Fahrzeuges}
+\subsection{Interne Kommunikation}
+Für die interne Kommunikation in einem Fahrzeug wird ein BUS verwendet
+
 \section{Übersicht bisheriger forensischer Methoden}
 \section{Ansätze für zukünftige forensischer Methoden}
 \section{Fazit}
@@ -46,14 +62,13 @@
 \addcontentsline{toc}{section}{Abkürzungen}
 
 \begin{acronym}[IEEE]
-\acro{ABK}{Abkürzung}
-\acro{PDF}{Portable Document Format}
+  \acro{ABK}{Abkürzung}
+  \acro{PDF}{Portable Document Format}
+  \acro{BAST}[BASt]{Bundesanstalt für Straßenwesen}
+  \acro{NHTSA}{National Highway Traffic Safety Administration}
 \end{acronym}
-
-\nocite*
 
 % Literaturverzeichnis
 \addcontentsline{toc}{section}{Literatur}
 \printbibliography
-
 \end{document}
