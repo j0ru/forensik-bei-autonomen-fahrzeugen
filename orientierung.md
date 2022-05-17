@@ -7,6 +7,8 @@ Grobe Gliederung:
 * Terminologie
   * Dabei konkurierende Definitionen aufzeigen und Begründung für die Auswahl liefern
 * Aufbau eines modernen Autos
+  * CAN-BUS / FlexRay
+  * 
 * Angriffsvektoren
 * Forensische Spuren
 * Konklusion
