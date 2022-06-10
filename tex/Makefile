@@ -32,7 +32,7 @@ clean:
 overleaf:
 	@cd .. && zip -r term-paper-overleaf.zip tex/*
 
-$(TEMP_DIR)/seminararbeit.pdf: seminararbeit.tex preambel.tex literatur.bib src/* img/*
+$(TEMP_DIR)/seminararbeit.pdf: seminararbeit.tex preambel.tex literatur.bib #src/* img/*
 	$(latex-it)
 
 $(RESULT_DIR)/seminararbeit.pdf: $(TEMP_DIR)/seminararbeit.pdf
