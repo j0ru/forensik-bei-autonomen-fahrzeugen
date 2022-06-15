@@ -2,3 +2,7 @@
 {"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Im Gegensatz zum Radar nimmt die Effektivität bei schlechten Wetterbedingungen jedoch stark ab.\\E$"}
 {"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Dieses System wird von den meisten Herstellern autonomer Fahrzeuge benutzt, jedoch nicht von allen.\\E$"}
 {"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Im Gegensatz zum Radar nimmt die Effektivität bei schlechten Wetterbedingungen, wie Schnee, Regen, Nebel und Staub, jedoch stark ab.\\E$"}
+{"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Die Firma Tuxera schätzte 2021 das ein durchschnittlicher US-amerikanischer Verbraucher zwischen 380 und 5100 TB pro Jahr generieren könnte.\\E$"}
+{"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Gleichzeitig gibt es einige Initiativen, sowohl gesetzlich, als auch technische, um die neu entstehenden Systeme der Forensik zugänglicher zu gestalten.\\E$"}
+{"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Gleichzeitig gibt es einige Initiativen, sowohl gesetzlich\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, als auch technische\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, um die neu entstehenden Systeme der Forensik zugänglicher zu gestalten.\\E$"}
+{"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Gemeinsam haben die Hersteller allerdings das die Kameras\\E$"}

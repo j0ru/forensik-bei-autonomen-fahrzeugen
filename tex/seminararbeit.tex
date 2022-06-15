@@ -41,7 +41,8 @@ sondern auch der Wechsel zu immer mehr Computergestützten Fahrsystemen, bis hin
 Um diesen Umschwung zu ermöglichen, müssen immer mehr Daten erhoben werden und komplexere Systeme zum Auswerten dieser Daten geschaffen werden.
 Nach Aussagen von Intel aus dem Jahr 2016 könnten Daten von bis zu 4 Terrabyte pro Tag generiert werden.~\cite{Nelson2016}
 Die Firma Tuxera schätzte 2021 das ein durchschnittlicher US-amerikanischer Verbraucher zwischen 380 und 5100 TB pro Jahr generieren könnte.~\cite{Wright2021}
-In dieser Arbeit soll die Frage geklärt werden, ob und wie diese Änderung die forensische Auswertung von Fahrzeugen erschweren könnte.
+Gleichzeitig gibt es einige Initiativen, sowohl gesetzlich\cite{Boehm2020}, als auch technische\cite{Hoque_2021a}\cite{Lee_2019}, um die neu entstehenden Systeme der Forensik zugänglicher zu gestalten.
+In dieser Arbeit soll die Frage geklärt werden, ob und wie diese Änderung die forensische Auswertung von Fahrzeugen verändern könnte.
 
 \section{Automatisiertes/Autonomes Fahren}
 
@@ -78,7 +79,7 @@ die für autonome Fahrzeuge eine relevante Funktion einnehmen.
 
 % TODO: Relevanz der Systeme hervorheben
 
-\subsection{Radar}
+\subsection{RADAR}
 
 Radar Systeme sind eine relative alte Erfindung, finden aber auch in den modernsten Fahrzeugen noch Einsatz.
 Dabei werden Radiowellen benutzt um die Entfernungen zu Objekten in der Umgebung zu messen.
@@ -86,25 +87,45 @@ Im Gegensatz zum Lidar werden Radiowellen deutlich weniger von der Umgebung vers
 größere Reichweite.~\cite{Neal2018} Außerdem ist es möglich durch den Dopplereffekt die Bewegungsrichtung von Objekten abzuleiten.
 Radare werden bereits für den assistierten Modus benutzt um z.B. Abstandsregeltempomaten umzusetzen.
 
-\subsection{Lidar}
+\subsection{LiDAR}
 
-Lidar ist eine dem Radar ähnliche Technologie, die anhand der Zeit die ein Lichtimpuls braucht um zum Ziel und wieder zurückzukommen, berechnet wie weit das Ziel entfernt ist. Solche Systeme sind inzwischen so weit entwickelt, dass sie ein
+\ac{LiDAR} ist eine dem Radar ähnliche Technologie, die anhand der Zeit die ein Lichtimpuls braucht um zum Ziel und wieder zurückzukommen, berechnet wie weit das Ziel entfernt ist. Solche Systeme sind inzwischen so weit entwickelt, dass sie ein
 dreidimensionales Abbild der Umgebung generieren können.
-Dieses Abbild enthält allerdings ausschließlich Tiefeninformationen.~\cite{Liu2018}
+Dieses Abbild enthält ausschließlich Tiefeninformationen.~\cite{Liu2018}
 Im Gegensatz zum Radar nimmt die Effektivität bei schlechten Wetterbedingungen, wie Schnee, Regen, Nebel und Staub, jedoch stark ab.~\cite{Neal2018}
 Dieses System wird von den meisten Herstellern autonomer Fahrzeuge benutzt, jedoch nicht von allen.~\cite{Dickson2021}
 
 \subsection{Kameras}
 
-Neben Lidar/Radar Systemen kommen Kamerasysteme mit visueller Objekterkennung zum Einsatz.
+Die Kameras eines autonomen Vehikels sind wahrscheinlich die wichtigsten Sensoren am Fahrzeug.
+Die Firma Tesla kündigte 2021 sogar an, nur noch auf Kameras zu setzen und das vorher noch benutzte Radar-System in Zukunft nicht mehr zu verbauen, sind damit aber ein Einzelfall.\cite{Koellner2022}
+Kameras sind oft günstiger als andere Sensoren, haben allerdings die Schwäche das ihre Wahrnehmung, ähnlich wie beim LiDAR, leicht von schlechten Sichtverhältnissen beeinflusst werden.
+Außerdem enthalten sie von sich aus keine Tiefeninformationen, die besonders für \ac{acc} und die Kollisionsvermeidung relevant sind.
+Es ist allerdings möglich Tiefeninformationen aus Stereokameras abzuleiten, das benötigt allerdings zusätzlichen Rechenaufwand und führt zu Latenz.~\cite{Petit2022}
+
+Eine weitere Anwendung finden die Kameras im Innenraum des Fahrzeuges.
+Nach Einführung der Stufe 3 des autonomen Fahrens in Amerika hat sich in vielen Fällen gezeigt das die Fahrer
+ihre Aufmerksamkeitspflicht verletzen und nicht in kurzer Zeit fähig sind in das Fahrgeschehen einzugreifen.
+Mittels der internen Kameras kann überwacht werden, ob die Aufmerksamkeit des Fahrers tatsächlich der Straße gillt.
+Zu diesem Zweck hatte Tesla Sensoren im Lenkrad verbaut, die die Präsenz der Hände am Lenkrad sicherstellen sollten,
+diese stellten sich allerdings als unzureichend und einfach manipulierbar heraus.~\cite{Trudell2021}
 
 \subsection{Entertainment System}
 
-\subsection{Forensische Standards}
+
+\section{Schwierigkeiten der automotiven Forensik}
+
+% Fahrzeuge werden komplexer
+
+% Anzahl der Systeme wächst
+
+\section{Gesetzliche Initiativen}
+
+% Jackpot: DSSAD / EDR
+
+\section{Forensische Standards}
 
 AVGuard + T-Box
-
-\subsection{Schwierigkeiten der automotiven Forensik}
 
 \section{Fazit}
 \section*{Abkürzungen}
@@ -115,6 +136,8 @@ AVGuard + T-Box
   \acro{BAST}[BASt]{Bundesanstalt für Straßenwesen}
   \acro{NHTSA}{National Highway Traffic Safety Administration}
   \acro{sae}[SAE]{SAE International}
+  \acro{acc}[ACC]{Adaptive Cruise Control}
+  \acro{LiDAR}{Light detection and ranging oder Light imaging, detection and ranging}
 \end{acronym}
 
 % Literaturverzeichnis
