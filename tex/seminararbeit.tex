@@ -44,13 +44,16 @@ Die Firma Tuxera schätzte 2021 das ein durchschnittlicher US-amerikanischer Ver
 In dieser Arbeit soll die Frage geklärt werden, ob und wie diese Änderung die forensische Auswertung von Fahrzeugen erschweren könnte.
 
 \section{Automatisiertes/Autonomes Fahren}
+
+% Eingehen auf relevante Punkte für die Forensik (z.B. Hände am Lenkrad)
+
 Für den Begriff des autonomen oder automatisierten Fahrens gibt es mehrere Definitionen, die sich jedoch im Kern gleichen.
 2013 definierte die \ac{NHTSA} folgende 5 Stufen\cite{NHTSA2013}:
 \begin{enumerate}
   \setcounter{enumi}{-1}
   \item \emph{No-Automation:} Der Fahrer hat volle Kontrolle über das Fahrzeug. Dies gillt auch wenn das Fahrzeug über Warnsysteme, wie eine Kollisionswarnung verfügt. Sekundäre Systeme wie Scheibenwischer, Blinklichter, Beleuchtung gelten ebenfalls als Level 0.
   \item \emph{Function-specific Automation:} Die fahrende Person kann teilweise die Kontrolle über einzelne System dem Fahrzeug überlassen. Beispiele für solche Systeme sind das \ac{abs}, welches die ultimative Kontrolle beim Fahrer belässt, aber in den Bremsprozess eingreift und der Spurhalteassistent, welcher nur leicht in den Lenkprozess eingreift, aber jederzeit von der fahrenden Person überschrieben werden kann.
-  \item \emph{Combined Function Automation:} Ab dieser Stufe können auch die primären Funktionen vollständig vom Fahrzeug übernommen werden, allerdings muss die fahrzeugführende Person jeder Zeit bereit sein in das Fahrgeschehen einzugreifen.
+  \item \emph{Combined Function Automation:} Ab dieser Stufe können auch die primären Funktionen vollständig vom Fahrzeug übernommen werden, allerdings muss die fahrzeugführende Person jeder Zeit bereit sein in das Fahrgeschehen einzugreifen. Um dies sicherzustellen, gibt es zum Beispiel Distanzsensoren am Lenkrad, welche messen ob der Fahrer die Hände in der Nähe des Lenkrads hat. %TODO: quelle
   \item \emph{Limited Self-Driving Automation:} Der/Die Fahrer:in kann zeitweise, unter den korrekten Bedingungen, wie z.B. eine Autobahn bei guter Sichtbarkeit, die komplette Kontrolle über das System abgeben. Sollte sich ein Hindernis ankündigen, dass nicht von dem autonomen System übernommen werden kann, wird die fahrende Person benachrichtigt und hat eine gewisse Zeitspanne zur Verfügung um sich mit der Verkehrssituation vertraut zu machen, bevor die Kontrolle vom autonomen System abgegeben wird.
   \item \emph{Full Self-Driving Automation:} Das Fahrzeug kann die komplette Kontrolle übernehmen ohne das eine Person in das Fahrgeschehen eingreifen können muss. Diese gibt nur noch das Ziel an.
 \end{enumerate}
@@ -73,26 +76,35 @@ Moderne Fahrzeuge bestehen aus vielen Einzelsystemen, die über einen gemeinsame
 Dabei fallen viele Daten an, die die forensische Auswertung unterstützen können. Im Folgenden werden die Systeme behandelt,
 die für autonome Fahrzeuge eine relevante Funktion einnehmen.
 
+% TODO: Relevanz der Systeme hervorheben
+
 \subsection{Radar}
 
-
+Radar Systeme sind eine relative alte Erfindung, finden aber auch in den modernsten Fahrzeugen noch Einsatz.
+Dabei werden Radiowellen benutzt um die Entfernungen zu Objekten in der Umgebung zu messen.
+Im Gegensatz zum Lidar werden Radiowellen deutlich weniger von der Umgebung verschluckt und haben damit eine
+größere Reichweite.~\cite{Neal2018} Außerdem ist es möglich durch den Dopplereffekt die Bewegungsrichtung von Objekten abzuleiten.
+Radare werden bereits für den assistierten Modus benutzt um z.B. Abstandsregeltempomaten umzusetzen.
 
 \subsection{Lidar}
 
-Lidar ist eine Radar ähnliche Technologie, die anhand der Zeit die ein Lichtimpuls braucht um zum Ziel und wieder zurückzukommen, berechnet wie weit das Ziel entfernt ist. Solche Systeme sind inzwischen so weit entwickelt, dass sie ein
+Lidar ist eine dem Radar ähnliche Technologie, die anhand der Zeit die ein Lichtimpuls braucht um zum Ziel und wieder zurückzukommen, berechnet wie weit das Ziel entfernt ist. Solche Systeme sind inzwischen so weit entwickelt, dass sie ein
 dreidimensionales Abbild der Umgebung generieren können.
 Dieses Abbild enthält allerdings ausschließlich Tiefeninformationen.~\cite{Liu2018}
-
+Im Gegensatz zum Radar nimmt die Effektivität bei schlechten Wetterbedingungen, wie Schnee, Regen, Nebel und Staub, jedoch stark ab.~\cite{Neal2018}
 Dieses System wird von den meisten Herstellern autonomer Fahrzeuge benutzt, jedoch nicht von allen.~\cite{Dickson2021}
 
 \subsection{Kameras}
 
+Neben Lidar/Radar Systemen kommen Kamerasysteme mit visueller Objekterkennung zum Einsatz.
+
 \subsection{Entertainment System}
 
-\section{Ansätze für forensische Analyse}
-\subsection{Forensische Standardts}
+\subsection{Forensische Standards}
 
 AVGuard + T-Box
+
+\subsection{Schwierigkeiten der automotiven Forensik}
 
 \section{Fazit}
 \section*{Abkürzungen}
