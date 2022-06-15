@@ -1,0 +1,4 @@
+{"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Außerdem ist es möglich durch den Dopplereffekt die Bewegungsrichtung von Objekten abzuleiten.\\E$"}
+{"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Im Gegensatz zum Radar nimmt die Effektivität bei schlechten Wetterbedingungen jedoch stark ab.\\E$"}
+{"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Dieses System wird von den meisten Herstellern autonomer Fahrzeuge benutzt, jedoch nicht von allen.\\E$"}
+{"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Im Gegensatz zum Radar nimmt die Effektivität bei schlechten Wetterbedingungen, wie Schnee, Regen, Nebel und Staub, jedoch stark ab.\\E$"}
