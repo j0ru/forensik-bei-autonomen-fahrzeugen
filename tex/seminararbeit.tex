@@ -87,10 +87,17 @@ Radare werden bereits für den assistierten Modus benutzt um z.B. Abstandsregelt
 
 \subsection{LiDAR}
 
-\ac{LiDAR} ist eine dem Radar ähnliche Technologie, die anhand der Zeit die ein Lichtimpuls braucht um zum Ziel und wieder zurückzukommen, berechnet wie weit das Ziel entfernt ist. Solche Systeme sind inzwischen so weit entwickelt, dass sie ein
-dreidimensionales Abbild der Umgebung generieren können.
-Dieses Abbild enthält ausschließlich Tiefeninformationen.~\cite{Liu2018}
-Im Gegensatz zum Radar nimmt die Effektivität bei schlechten Wetterbedingungen, wie Schnee, Regen, Nebel und Staub, jedoch stark ab.~\cite{Neal2018}
+\ac{LiDAR} ist eine dem Radar ähnliche Technologie, die anhand der Zeit die ein Lichtimpuls braucht um zum Ziel und wieder zurückzukommen, berechnet wie weit das Ziel entfernt ist.
+Mit dieser Technik ist es möglich, zwei- und dreidimensionale Abbider der Umgebung zu schaffen.
+Um dieses Ziel zu erreichen wurde in der Vergangenheit ein rotierender Spiegel genutzt, um den Laser auf einer Ebene um das Auto zu bewegen.
+Dies erzeugt aber nur ein zweidimensionales Bild, also ein Abbild aller Objekte in einer Ebene um das Fahrzeug herum.
+Um auch mechanisch ein dreidimensionales Bild erzeugen zu können wird zusätzlich die Neigung des Spiegels verändert, um aus der Ebene ausbrechen zu können.
+Erkennbar sind diese Systeme an einem charakteristischen runden Aufbau auf dem Dach des Fahrzeuges.\\
+Ein Ansatz, der weniger auf mechanische Bauteile setzt, benutzt einen starken Blitz im nicht sichtbaren Spektrum, der dann von einem zweidimensionalen Detektor aufgenommen werden kann.
+Zusätzlich mit den Tiefeninformation, die aus der Verzögerung des Echos abgeleitet werden können, wird eine Punktwolke abgeleitet die ein dreidimensionales Abbild der Umgebung
+schaffen. Im Gegensatz zum mechanischen \ac{LiDAR} hat diese Technik kaum bewegliche Teile und ist dadurch weniger verschleißanfällig, allerdings bringt der Lichtblitz ein eigenes Problem mit,
+er führt zu starken Verbrauchsspitzen.~\cite{Zhaohua2020}\\
+Im Gegensatz zum Radar nimmt die Effektivität bei schlechten Wetterbedingungen, wie Schnee, Regen, Nebel und Staub, bei beiden Ansätzen jedoch stark ab.~\cite{Neal2018}
 Dieses System wird von den meisten Herstellern autonomer Fahrzeuge benutzt, jedoch nicht von allen.~\cite{Dickson2021}
 
 \subsection{Kameras}
@@ -99,7 +106,7 @@ Die Kameras eines autonomen Vehikels sind wahrscheinlich die wichtigsten Sensore
 Die Firma Tesla kündigte 2021 sogar an, nur noch auf Kameras zu setzen und das vorher noch benutzte Radar-System in Zukunft nicht mehr zu verbauen, sind damit aber ein Einzelfall.\cite{Koellner2022}
 Kameras sind oft günstiger als andere Sensoren, haben allerdings die Schwäche das ihre Wahrnehmung, ähnlich wie beim LiDAR, leicht von schlechten Sichtverhältnissen beeinflusst werden.
 Außerdem enthalten sie von sich aus keine Tiefeninformationen, die besonders für \ac{acc} und die Kollisionsvermeidung relevant sind.
-Es ist allerdings möglich Tiefeninformationen aus Stereokameras abzuleiten, das benötigt allerdings zusätzlichen Rechenaufwand und führt zu Latenz.~\cite{Petit2022}
+Es ist allerdings möglich Tiefeninformationen aus Stereokameras abzuleiten, das benötigt allerdings zusätzlichen Rechenaufwand und führt zu Latenz.~\cite{Petit2022}\par
 
 Eine weitere Anwendung finden die Kameras im Innenraum des Fahrzeuges.
 Nach Einführung der Stufe 3 des autonomen Fahrens in Amerika hat sich in vielen Fällen gezeigt das die Fahrer
@@ -108,7 +115,44 @@ Mittels der internen Kameras kann überwacht werden, ob die Aufmerksamkeit des F
 Zu diesem Zweck hatte Tesla Sensoren im Lenkrad verbaut, die die Präsenz der Hände am Lenkrad sicherstellen sollten,
 diese stellten sich allerdings als unzureichend und einfach manipulierbar heraus.~\cite{Trudell2021}
 
-\subsection{Entertainment System}
+\subsection{Ultraschall}
+
+Ultraschallsensoren werden bereits für Einparkhilfen und Kollisionswarnungen genutzt.
+Die Sensoren arbeiten vergleichbar wie das Radar, allerdings werden keine Radiowellen genutzt,
+sondern kurzwelliger Schall, meistens zwischen 40kHz und 58kHz.~\cite{Zhaohua2020}
+Diese Methode hat allerdings den Nachteil das die Reichweite auf ca. 10 Meter begrenzt ist, und somit nur
+für Szenarien in denen sich das Fahrzeug langsam bewegt, geeignet ist.~\cite{Petit2022}
+
+\subsection{Infotainment System}
+
+Das Infotainment System ist eines der datenstärksten Systeme, die in einem Fahrzeug verbaut sind.
+Wie dem Namen zu entnehmen ist, erfüllt dieses System zwei Funktionen:
+Zum einen macht es dem Fahrer Informationen über das Auto zugänglich zu und zum anderen kann es zur Unterhaltung genutzt werden.
+
+Während diese Systeme lange nur als Radio und zum Abspielen eigener physischer Medien wie Audiokassetten und CDs genutzt wurden,
+sind etwa ab 2010 viele neue Funktionen dazu gekommen.~\cite{Rossi2021}\par
+
+Mit der Einführung von Bluetooth ist es nicht nur möglich geworden Audio über die integrierte Audioanlage des Autos abzuspielen,
+sondern diese auch für Anrufe zu benutzen. Durch das \ac{AVRCP} Protokoll werden zusätzlich Metadaten über die wiedergegebenen Medien
+an das Infotainment System gesendet, die bei einer forensichen Untersuchung relevant sein könnten.
+Ebenfalls ist es möglich sein Telefonbuch in das Infotainment System hochzuladen, ein Feature, das es dem Nutzer erleichtern soll
+Anrufe initieren zu können. Einige Modelle bieten Sprachsteuerungen an, mit denen der Fahrer einen Anruf starten kann, ohne den Blick von
+der Straße zu nehmen.\par
+Bei der Verwendung von der Bluetoothschnittstelle hinterlässt das verbunde Gerät einige Informationen, die zur eindeutigen Identifikation
+genutzt werden können und damit sehr wertvoll für eine Investigation des Fahrzeuges sind, sollte es nötig sein den Fahrer zu identifizieren.
+
+Ein weiteres weit verbreitetes Feature ist die Integration eines Navigationssystems.
+Zur Funktion ist ein \ac{GPS} notwendig, womit die Position des Fahrzeuges auf wenige Meter genau festgestellt werden kann.
+% TODO: GPS 
+
+Daten die bei bisherigen Untersuchungen oft gefunden wurden:~\cite{Lacroix2017}
+\begin{itemize}
+  \item \emph{Bluetooth Geräteliste} Die Geräteliste enthält alle verbundenen Geräte. Unter anderem auch der Mac Addresse, die zur eindeutigen Identifikation eines Gerätes genutzt werden kann
+  \item \emph{Kontakte} Die per Bluetooth hochgeladene Liste der Kontakte
+  \item \emph{Anruf Verlauf} Liste getätigter Anrufe über das Infotainment System
+  \item \emph{SMS} Empfangene SMS während ein Telefon verbunden war
+  \item \emph{GPS Koordinaten} Gespeicherte Orte für die Navigation, teilweise auch Orte an denen sich das Fahrzeug befunden hat
+\end{itemize}
 
 % Bluetooth
 % gps
@@ -117,11 +161,15 @@ diese stellten sich allerdings als unzureichend und einfach manipulierbar heraus
 
 \section{Schwierigkeiten der automotiven Forensik}
 
+Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \citetitle{Kopencova_2020} und \citetitle{LeKhac2020}
+
 % Fahrzeuge werden komplexer
 
 % Anzahl der Systeme wächst
 
 \section{Gesetzliche Initiativen}
+
+
 
 % Jackpot: DSSAD / EDR
 
@@ -134,6 +182,8 @@ AVGuard + T-Box
 \addcontentsline{toc}{section}{Abkürzungen}
 
 \begin{acronym}[IEEE]
+  \acro{GPS}{Global Positioning System}
+  \acro{AVRCP}{Audio/Video Remote Control}
   \acro{abs}[ABS]{Anti-lock braking system}
   \acro{BAST}[BASt]{Bundesanstalt für Straßenwesen}
   \acro{NHTSA}{National Highway Traffic Safety Administration}
