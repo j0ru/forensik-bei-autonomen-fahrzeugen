@@ -29,6 +29,13 @@
 \pagestyle{plain}
 
 \begin{abstract}
+  Das Konzept von autonomen Fahrzeugen wird immer populärer und die ersten Implementationen die keine Nutzterinteraktion mehr
+  benötigen, erreichen die Testphase. Auf dem Weg dahin sind schon viele Technologien entstanden, die das Fahren unterstützen.
+  Um das zu ermöglichen, müssen die Fahrzeuge mehr Daten erheben und einige bestehenden Komponenten müssen ersetzt werden.
+  In diesem Paper werden die nötigen Technologien beleuchtet, wie sie eingesetzt werden,
+  welche Daten dabei entstehen und welche Auswirkungen das auf die Versuche Tathergänge und Unfälle zu rekonstruieren, hat.
+  Außerdem wird betrachtet, welche Ansätze es gibt diesen Prozess einfacher zu gestallten und welchen Effekt die neu geschaffenen
+  Gesetze zum autonomen Fahren darauf haben.
 \end{abstract}
 
 % Inhaltsverzeichnis erzeugen
@@ -37,7 +44,8 @@
 \section{Einleitung}
 
 Seit einigen Jahren befindet sich die Automobilindustrie im Umbruch. Nicht nur steht der Wechsel zu Strom betriebenen Kraftfahrzeugen an,
-sondern auch der Wechsel zu immer mehr Computergestützten Fahrsystemen, bis hin zum komplett autonomen Fahrzeug.
+sondern auch der Wechsel zu immer mehr computergestützten Fahrsystemen, bis hin zum komplett autonomen Fahrzeug.
+
 Um diesen Umschwung zu ermöglichen, müssen immer mehr Daten erhoben werden und komplexere Systeme zum Auswerten dieser Daten geschaffen werden.
 Nach Aussagen von Intel aus dem Jahr 2016 könnten Daten von bis zu 4 Terrabyte pro Tag generiert werden.~\cite{Nelson2016}
 Die Firma Tuxera schätzte 2021 das ein durchschnittlicher US-amerikanischer Verbraucher zwischen 380 und 5100 TB pro Jahr generieren könnte.~\cite{Wright2021}
@@ -52,11 +60,11 @@ Für den Begriff des autonomen oder automatisierten Fahrens gibt es mehrere Defi
 2013 definierte die \ac{NHTSA} folgende 5 Stufen\cite{NHTSA2013}:
 \begin{enumerate}
   \setcounter{enumi}{-1}
-  \item \emph{No-Automation:} Der Fahrer hat volle Kontrolle über das Fahrzeug. Dies gillt auch wenn das Fahrzeug über Warnsysteme, wie eine Kollisionswarnung verfügt. Sekundäre Systeme wie Scheibenwischer, Blinklichter, Beleuchtung gelten ebenfalls als Level 0.
+  \item \emph{No-Automation:} Der Fahrer hat volle Kontrolle über das Fahrzeug. Dies gillt, auch wenn das Fahrzeug über Warnsysteme, wie eine Kollisionswarnung verfügt. Sekundäre Systeme wie Scheibenwischer, Blinklichter, Beleuchtung gelten ebenfalls als Level 0.
   \item \emph{Function-specific Automation:} Die fahrende Person kann teilweise die Kontrolle über einzelne System dem Fahrzeug überlassen. Beispiele für solche Systeme sind das \ac{abs}, welches die ultimative Kontrolle beim Fahrer belässt, aber in den Bremsprozess eingreift und der Spurhalteassistent, welcher nur leicht in den Lenkprozess eingreift, aber jederzeit von der fahrenden Person überschrieben werden kann.
   \item \emph{Combined Function Automation:} Ab dieser Stufe können auch die primären Funktionen vollständig vom Fahrzeug übernommen werden, allerdings muss die fahrzeugführende Person jeder Zeit bereit sein in das Fahrgeschehen einzugreifen. Um dies sicherzustellen, gibt es zum Beispiel Distanzsensoren am Lenkrad, welche messen ob der Fahrer die Hände in der Nähe des Lenkrads hat. %TODO: quelle
-  \item \emph{Limited Self-Driving Automation:} Der/Die Fahrer:in kann zeitweise, unter den korrekten Bedingungen, wie z.B. eine Autobahn bei guter Sichtbarkeit, die komplette Kontrolle über das System abgeben. Sollte sich ein Hindernis ankündigen, dass nicht von dem autonomen System übernommen werden kann, wird die fahrende Person benachrichtigt und hat eine gewisse Zeitspanne zur Verfügung um sich mit der Verkehrssituation vertraut zu machen, bevor die Kontrolle vom autonomen System abgegeben wird.
-  \item \emph{Full Self-Driving Automation:} Das Fahrzeug kann die komplette Kontrolle übernehmen ohne das eine Person in das Fahrgeschehen eingreifen können muss. Diese gibt nur noch das Ziel an.
+  \item \emph{Limited Self-Driving Automation:} Die fahrzeugführende Person kann zeitweise, unter den korrekten Bedingungen, wie z.B. eine Autobahn bei guter Sichtbarkeit, die komplette Kontrolle über das System abgeben. Sollte sich ein Hindernis ankündigen, dass nicht von dem autonomen System übernommen werden kann, wird die fahrende Person benachrichtigt und hat eine gewisse Zeitspanne zur Verfügung um sich mit der Verkehrssituation vertraut zu machen, bevor die Kontrolle vom autonomen System abgegeben wird.
+  \item \emph{Full Self-Driving Automation:} Das Fahrzeug kann die komplette Kontrolle übernehmen, ohne das eine Person in das Fahrgeschehen eingreifen können muss. Diese gibt nur noch das Ziel an.
 \end{enumerate}
 
 Die \ac{BAST} unterscheidet 3 Kategorien\cite{bast2021}:
@@ -67,7 +75,7 @@ Die \ac{BAST} unterscheidet 3 Kategorien\cite{bast2021}:
   \item \emph{Autonomer Modus:} Entspricht Level 5 der \ac{NHTSA} Definition.
 \end{itemize}
 
-Die Kategorien der \ac{BAST} wurden von der \ac{sae} weiterentwickelt \cite{bast2021} und unterscheidet sich im wesentlichen von der Definition der \ac{NHTSA} dadurch, dass zwischen Stufe 3 und 4 noch eine weitere hinzugefügt wurde, die es nur unter bestimmten Konditionen erlaubt die Kontrolle vollständig abzugeben\cite{SAE2021}.
+Die Kategorien der \ac{BAST} wurden von der \ac{sae} weiterentwickelt\cite{bast2021} und unterscheiden sich im Wesentlichen von der Definition der \ac{NHTSA} dadurch, dass zwischen Stufe 3 und 4 noch eine weitere hinzugefügt wurde, die es nur unter bestimmten Konditionen erlaubt die Kontrolle vollständig abzugeben\cite{SAE2021}.
 
 \section{Datenquellen in modernen Fahrzeugen}
 
@@ -142,7 +150,9 @@ Bei der Verwendung von der Bluetoothschnittstelle hinterlässt das verbunde Ger�
 genutzt werden können und damit sehr wertvoll für eine Investigation des Fahrzeuges sind, sollte es nötig sein den Fahrer zu identifizieren.
 
 Ein weiteres weit verbreitetes Feature ist die Integration eines Navigationssystems.
-Zur Funktion ist ein \ac{GPS} notwendig, womit die Position des Fahrzeuges auf wenige Meter genau festgestellt werden kann.
+Zur Funktion ist ein \ac{GPS} Modul notwendig, womit die Position des Fahrzeuges auf wenige Meter genau festgestellt werden kann.
+
+Zu den meistens vorhanden Komfortfunktionen zählt die Möglichkeit Ziele zur Wiederverwendung abzuspeichern.
 % TODO: GPS 
 
 Daten die bei bisherigen Untersuchungen oft gefunden wurden:~\cite{Lacroix2017}
@@ -168,14 +178,15 @@ Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \citetitle
 % Anzahl der Systeme wächst
 
 \section{Gesetzliche Initiativen}
-
-
+% Wieso nur Deutschland
 
 % Jackpot: DSSAD / EDR
 
 \section{Forensische Standards}
 
-AVGuard + T-Box
+% Paper über  AVGuard macht Sensoren relevant
+
+% AVGuard + T-Box
 
 \section{Fazit}
 \section*{Abkürzungen}
