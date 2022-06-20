@@ -6,3 +6,5 @@
 {"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Gleichzeitig gibt es einige Initiativen, sowohl gesetzlich, als auch technische, um die neu entstehenden Systeme der Forensik zugänglicher zu gestalten.\\E$"}
 {"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Gleichzeitig gibt es einige Initiativen, sowohl gesetzlich\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, als auch technische\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, um die neu entstehenden Systeme der Forensik zugänglicher zu gestalten.\\E$"}
 {"rule":"DE_CASE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q Gemeinsam haben die Hersteller allerdings das die Kameras\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qavrcp Audio/Video Remote Control abs[ABS]Anti-lock braking system BAST[BASt]Bundesanstalt für Straßenwesen NHTSA National Highway Traffic Safety Administration sae[SAE]SAE International acc[ACC]Adaptive Cruise Control LiDAR Light detection and ranging oder Light imaging, detection and ranging\\E$"}
+{"rule":"GERMAN_WORD_REPEAT_RULE","sentence":"^\\QGPS Koordinaten Koordinaten gespeicherter Orte und\\E$"}
