@@ -166,7 +166,7 @@ Daten die bei bisherigen Untersuchungen oft gefunden wurden:~\cite{Lacroix2017}
 
 \section{Schwierigkeiten der automotiven Forensik}
 
-Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \citetitle{Kopencova_2020} und \citetitle{LeKhac2020}
+Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \citetitle{Kopencova_2020} und \citetitle{LeKhac2020}.
 
 % Fahrzeuge werden komplexer
 
@@ -177,6 +177,28 @@ Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \citetitle
 % Jackpot: DSSAD / EDR
 
 \section{Forensische Standards}
+
+Neben den gesetzlichen Initiativen zur Festlegung eines Standards gibt es auch technische Ansätze um ein Framework zur forensischen
+Untersuchung autonomer Fahrzeuge zu schaffen. Im Gegensatz zu den gesetzlichen Vorschlägen decken diese auch Daten ab die von Sensoren
+wie den Kameras und dem \ac{LiDAR} erhoben werden.
+Im folgenden werden zwei dieser technischen Lösungen betrachtet und welche Probleme der Forensik sie lösen.
+Ob diese sich allerdings durchesetzen bleibet laut \Citeauthor{Kopencova_2020} zu bezweifelen. Laut ihnen
+hat sich gezeigt das durch die große Menge and Herstellern von Fahrzeugen und Anbietern von besthender Analysesoftware
+ein universeller Ansatz nicht existieren kann.
+
+\subsection{Erfasste Daten}
+
+\subsection{Datenmenge}
+Die Datenmenge die von den verschieden Systemen produziert wird ist signifikant, bis zu 110MB/s oder 4000GB pro Tag.\cite{Hoque_2021a}
+Zur Lösung des Problems wird in dem Vorschlag zu AVGuard ein ausreichender lokaler Speicher vorgeschlagen, der noch mit
+zusätzlichem Platz in einer online Platform erweitert werden kann. Auf datenschutzrechtliche Aspekte wird nicht eingegangen.
+In dem Paper über T-Box wird noch auf die Effizienz von Kompressionsalgorithmen eingegangen. Dabei haben sie mit dem zip Kompressionsalgorithmus
+eine Rate von 17.4\% auf in Simulationen erfassten Daten erreicht. Aber auch sie schlagen einen zusätzlichen Cloud Speicher vor,
+eine Kompression würde nur den Netzverkehr und den benötigten lokalen Speicherplatz verringern.
+Abschließend geben sie noch zu bedenken das mit der Kompression auch die Fehleranfälligkeit steigt, da ein einzelnes korrumpiertes Bit
+einen größeren Datensatz beeinflussen kann.
+
+\subsection{Datenintegritaet}
 
 % Paper über  AVGuard macht Sensoren relevant
 
