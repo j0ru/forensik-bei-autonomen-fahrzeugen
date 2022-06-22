@@ -178,27 +178,61 @@ Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \citetitle
 
 \section{Forensische Standards}
 
-Neben den gesetzlichen Initiativen zur Festlegung eines Standards gibt es auch technische Ansätze um ein Framework zur forensischen
+Neben den gesetzlichen Initiativen zur Festlegung eines Standards gibt es auch technische Ansätze, um ein Framework zur forensischen
 Untersuchung autonomer Fahrzeuge zu schaffen. Im Gegensatz zu den gesetzlichen Vorschlägen decken diese auch Daten ab die von Sensoren
 wie den Kameras und dem \ac{LiDAR} erhoben werden.
-Im folgenden werden zwei dieser technischen Lösungen betrachtet und welche Probleme der Forensik sie lösen.
+Im Folgenden werden zwei dieser technischen Lösungen, AVGuard\cite{Hoque_2021a} und T-Box\cite{Lee_201} betrachtet und welche Probleme der Forensik sie lösen.
 Ob diese sich allerdings durchesetzen bleibet laut \Citeauthor{Kopencova_2020} zu bezweifelen. Laut ihnen
 hat sich gezeigt das durch die große Menge and Herstellern von Fahrzeugen und Anbietern von besthender Analysesoftware
 ein universeller Ansatz nicht existieren kann.
 
 \subsection{Erfasste Daten}
 
+Die beiden Ansätze unterscheiden sich stark im Ansatz welche Daten mitgeschrieben werden sollen.
+T-Box schlägt vor die Box Hardware direkt am Ethernet Backbone des Fahrzeuges anzubringen.
+Das Ziel ist es sämtliche Daten die über das interne Netzwerk versendet werden, aufzuzeichenen.
+Im Gegensatz dazu schlägt AVGuard vor nur bestimmte Inhalte aufzuzeichnen.
+Dafür haben sie fünf Kategorien identifiziert die aufgezeichnet werden sollen.\\
+\emph{Sensoren} Darunter fallen Kamera, \ac{LiDAR}, \ac{GPS} und optional Ultraschall.\\
+\emph{Wahrnemung} Die Wahrnemung beschreibt welche Objekte aus den Daten der Sensoren abgeleitet werden konnten.
+  Die vorgeschlagenen Objekte sind Autos, Personen, Lichtsignalanlagen, Straßenschilder,
+  die Sicherheit mit der die Straßenbegrenzung erkannt wurde und unbekannte Objekte.\\
+\emph{Lokalisation} Die Position des Fahrzeuges, mit einer Auflösung zwischen 2 und 10 Centimetern.\\
+\emph{Planung} Die Planungskategorie beschreibt das momentane Vorhaben des Fahrzeuges.
+  Ein Logeintrag wird erstellt, wenn sich die Planung ändert.\\
+\emph{Kontrolle} Unter die Kontrolle fallen die Aktionen, die von dem System ausgelöst werden.
+  Das betrifft konkret die Beschleunigung, die Bremse und die Lenkung. 
+  Ein neuer Eintrag wird erstellt, wenn das System entscheidet zu beschleunigen oder zu Bremsen,
+  oder wenn der Lenkwinkel einen bestimmten Grenzwert überschreitet. Wo dieser Grenzwert liegt, wurde nicht definiert.\\
+
+Durch das klare Format ist der Reverseengineeringaufwand von AVGuard deutlich geringer, allerdings sind die Daten, die
+von T-Box aufgenommen werden, umfangreicher. Leider werden im Paper über AVGuard keine Aussagen über die vollständigkeit getroffen.
+
+
 \subsection{Datenmenge}
-Die Datenmenge die von den verschieden Systemen produziert wird ist signifikant, bis zu 110MB/s oder 4000GB pro Tag.\cite{Hoque_2021a}
+Die Datenmenge, die von den verschiedenen Systemen produziert wird, ist signifikant, bis zu 110MB/s oder 4000GB pro Tag.~\cite{Hoque_2021a}
 Zur Lösung des Problems wird in dem Vorschlag zu AVGuard ein ausreichender lokaler Speicher vorgeschlagen, der noch mit
 zusätzlichem Platz in einer online Platform erweitert werden kann. Auf datenschutzrechtliche Aspekte wird nicht eingegangen.
 In dem Paper über T-Box wird noch auf die Effizienz von Kompressionsalgorithmen eingegangen. Dabei haben sie mit dem zip Kompressionsalgorithmus
-eine Rate von 17.4\% auf in Simulationen erfassten Daten erreicht. Aber auch sie schlagen einen zusätzlichen Cloud Speicher vor,
+eine Rate von 17.4\% auf in Simulationen erfassten Daten erreicht. Aber auch sie schlagen einen zusätzlichen Cloudspeicher vor,
 eine Kompression würde nur den Netzverkehr und den benötigten lokalen Speicherplatz verringern.
 Abschließend geben sie noch zu bedenken das mit der Kompression auch die Fehleranfälligkeit steigt, da ein einzelnes korrumpiertes Bit
 einen größeren Datensatz beeinflussen kann.
 
-\subsection{Datenintegritaet}
+\subsection{Datenintegrität}
+
+Eine wesentliche Schwierigkeit der Forensik ist die Daten zu erheben, ohne sie zu verändern. Ohne einen dedizierten Zugang
+zu den Daten, kann dies einen physischen Eingriff ins System, wie zum Beispiel einen Chip-of bedeuten.
+Außerdem ist sicherzustellen das die Daten nicht im Nachhinein manipuliert wurden, beispielsweise vom Täter.
+Auch dafür bieten beide Vorschläge eine Lösung, die sich aber im Konzept sehr ähneln.
+Beide setzen für die Validierung der Daten und die Detektion einer vorsätzlichen Änderung eine Hashkette ein.\\
+Eine Hashkette ist ein Konstrukt aus der Kryptografie.
+Dabei werden Datensätze zu Blöcken zusammengefast und mit einem privaten Schlüssel verschlüsselt.
+Anschließend wird ein Hash über die verschlüsselten Daten erstellt der an den nächsten erzeugten Datenblock angehängt wird.
+Der Hash des nächsten Blocks wird wiederrum an den darauf folgenden angehängt, usw.
+Diese Technik hat den Vorteil das es praktisch nicht möglich ist, mit Ausnahme des letzten Blocks, Änderungen vorzunehmen, ohne das eine
+Untersuchung diese Manipulation feststellen wird, vorrausgesetzt der Hashalgorithmus entspricht modernen kryptografischen Standardts.
+
 
 % Paper über  AVGuard macht Sensoren relevant
 
@@ -210,6 +244,7 @@ einen größeren Datensatz beeinflussen kann.
 
 \begin{acronym}[IEEE]
   \acro{GPS}{Global Positioning System}
+  \acro{can}[CAN]{Controller Area Network}
   \acro{AVRCP}{Audio/Video Remote Control}
   \acro{abs}[ABS]{Anti-lock braking system}
   \acro{BAST}[BASt]{Bundesanstalt für Straßenwesen}
