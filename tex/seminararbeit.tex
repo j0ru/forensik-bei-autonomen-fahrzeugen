@@ -171,6 +171,7 @@ Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \citetitle
 In diesen Arbeiten wird auf die bisherigen Probleme der forensischen Aufarbeitung eingegangen, bieten aber einen guten Anhaltspunkt
 welche Probleme in zukünftigen Systemen auftreten könnten.
 
+
 % Fahrzeuge werden komplexer
 
 % Anzahl der Systeme wächst
@@ -179,6 +180,7 @@ welche Probleme in zukünftigen Systemen auftreten könnten.
 
 Die neuen Herausforderungen wurden auch von den Gesetzgebern erkannt und es wurden zwei Verordnungen auf den Weg gebracht.
 Diese sollen die Rekonstruktion und Schuldfeststellung eines Vorfalles unterstützen.
+Zwar helfen diese Systeme beim Rekonstruieren eines Unfalls, sind aber nicht anwendbar für die Untersuchung von Betrugs oder Diebstahlsfällen.~\cite{Boehm2020}
 
 \subsection{DSSAD}
 
@@ -196,7 +198,19 @@ Die Art und Weise wie diese Daten abgerufen werden können ist in der Definition
 zur Verfügung stehen müssen diese Daten auszulesen. Das Fehlen eines gemeinsamen Standards bedeuted im logischen Schluss aber auch, dass das Problem der vielen
 herstellerspeziefischen Werkzeuge nicht direkt behoben wird.\\
 Die EU Verordnung 2019/2144 definiert, dass das \ac{dssad} ab 2022 verpflichtend wird.
-% Jackpot: DSSAD / EDR
+
+\subsection{EDR}
+
+Der \ac{EDR} ist eine sogenannte Blackbox die im Falle eines Ereignisses, zum Beispiel eines Unfalls, Daten über den Zustand des Fahrzeuges abspeichern soll, um diese
+später in der forensischen Analyse nutzen zu können.
+Dabei ist ein Ereigniss definiert als der Moment, in dem einer der Airbags ausgelöst wird.~\cite{NHTSA_2018}
+Dieses Kriterium wird allerdings von einer Arbeit über den EDR als Hilfe zur Rekonstruktion eines Tathergangs als unzureichend kiritisiert.~\cite{Boehm2020}
+
+Die Vorgaben decken viele der klassischen Systeme in einem Fahrzeug ab, beziehen sich aber in keiner Weise auf die neueren Systeme, die für das autonome Fahren eingeführt wurden.
+
+Wie auch bei der DSSAD sind Hersteller verpfichted Werkzeuge zum Auslesen des \ac{EDR} kommerziell anzubieten. Das Problem der Frakmentierung und der hohen Kosten für
+die allgemeine Möglichkeit das \ac{EDR} auszulesen bleiben also bestehen.
+Laut einer Pressemitteilung der Europäischen Kommission wird der \ac{EDR} ab dem Jahr 2022 verpflichtend.~\cite{EuropeanCommision_2019}
 
 \section{Forensische Standards}
 
@@ -262,6 +276,7 @@ Untersuchung diese Manipulation feststellen wird, vorrausgesetzt der Hashalgorit
 \addcontentsline{toc}{section}{Abkürzungen}
 
 \begin{acronym}[IEEE]
+  \acro{EDR}{Event Data Recorder}
   \acro{HAD}{Highly-Automated-Driving}
   \acro{dssad}[DSSAD]{Data Storage Systems for Automated Driving}
   \acro{GPS}{Global Positioning System}
