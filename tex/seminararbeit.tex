@@ -184,7 +184,7 @@ Zwar helfen diese Systeme beim Rekonstruieren eines Unfalls, sind aber nicht anw
 
 \subsection{DSSAD}
 
-Das \ac{dssad} ist eine Anforderung an ein Speichersystem, explizit ausgerichtet auf autonome Fahrzeuge die dem Level 3 bis 5 der \ac{SAE} Definition entsprechen.
+Das \ac{dssad} ist eine Anforderung an ein Speichersystem, explizit ausgerichtet auf autonome Fahrzeuge die dem Level 3 bis 5 der \ac{sae} Definition entsprechen.
 Dabei werden bestimmte Datenpunkte definiert, die verpflichtend erhoben werden müssen, um festzustellen, wann die fahrende Person oder ein automatisiertes System das Fahrzeug lenken.
 Die Datenpunkte sind wie folgt definiert.
 \begin{itemize}
@@ -204,7 +204,11 @@ Die EU Verordnung 2019/2144 definiert, dass das \ac{dssad} ab 2022 verpflichtend
 Der \ac{EDR} ist eine sogenannte Blackbox die im Falle eines Ereignisses, zum Beispiel eines Unfalls, Daten über den Zustand des Fahrzeuges abspeichern soll, um diese
 später in der forensischen Analyse nutzen zu können.
 Dabei ist ein Ereigniss definiert als der Moment, in dem einer der Airbags ausgelöst wird.~\cite{NHTSA_2018}
-Dieses Kriterium wird allerdings von einer Arbeit über den EDR als Hilfe zur Rekonstruktion eines Tathergangs als unzureichend kiritisiert.~\cite{Boehm2020}
+Dieses Kriterium wird allerdings von einer Arbeit über den EDR in autonomen Fahrzeugen als unzureichend kiritisiert.~\cite{Boehm2020}
+In einem Vorschlag für einen neuen Standard zur Aufzeichnung von Fahrzeugdaten für die forensische Anwendung wird außerdem angemerkt,
+dass ein solches System manipulierbar ist und nicht immer als Beweis genutzt werden könnte.~\cite{LEE_2019}
+Ein Paper über die Schwierigkeiten der Forensik bei Fahrzeugen bemängelte außerdem, dass der \ac{EDR} nur in wenigen Fällen anwendbar ist
+und für Fälle des Betrugs oder der Manipulation des Fahrzeuges nicht nützlich ist.~\cite{Kopencova_2020}
 
 Die Vorgaben decken viele der klassischen Systeme in einem Fahrzeug ab, beziehen sich aber in keiner Weise auf die neueren Systeme, die für das autonome Fahren eingeführt wurden.
 
