@@ -82,6 +82,7 @@ Die Kategorien der \ac{BAST} wurden von der \ac{sae} weiterentwickelt\cite{bast2
 Moderne Fahrzeuge bestehen aus vielen Einzelsystemen, die über einen gemeinsamen Bus miteinander Kommunizieren.
 Dabei fallen viele Daten an, die die forensische Auswertung unterstützen können. Im Folgenden werden die Systeme behandelt,
 die für autonome Fahrzeuge eine relevante Funktion einnehmen.
+Besonders die Sensoren können sehr relevant für die rekonstruktion eines Unfalles sein.
 
 % TODO: Relevanz der Systeme hervorheben
 
@@ -151,11 +152,11 @@ genutzt werden können und damit sehr wertvoll für eine Investigation des Fahrz
 
 Ein weiteres weit verbreitetes Feature ist die Integration eines Navigationssystems.
 Zur Funktion ist ein \ac{GPS} Modul notwendig, womit die Position des Fahrzeuges auf wenige Meter genau festgestellt werden kann.
+Dieses erhebt während der Fahrt einen exakten Pfad, den das Fahrzeug genommen hat und speichert potentiel einzelne Standpunkte.
+Neben den passiv gespeicherten Daten kann der Nutzer auch selber Punkte hinterlegen, mit der Intention diese später einfacher als 
+Navigationsziel aufzurufen.
 
-Zu den meistens vorhanden Komfortfunktionen zählt die Möglichkeit Ziele zur Wiederverwendung abzuspeichern.
-% TODO: GPS 
-
-Daten die bei bisherigen Untersuchungen oft gefunden wurden:~\cite{Lacroix2017}
+Eine Untersung verschiedener Infotainment Systeme ergab, das die folgenden Daten oft noch vorhanden waren:~\cite{Lacroix2017}
 \begin{itemize}
   \item \emph{Bluetooth Geräteliste} Die Geräteliste enthält alle verbundenen Geräte. Unter anderem auch der Mac Addresse, die zur eindeutigen Identifikation eines Gerätes genutzt werden kann
   \item \emph{Kontakte} Die per Bluetooth hochgeladene Liste der Kontakte
@@ -167,6 +168,8 @@ Daten die bei bisherigen Untersuchungen oft gefunden wurden:~\cite{Lacroix2017}
 \section{Schwierigkeiten der automotiven Forensik}
 
 Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \citetitle{Kopencova_2020} und \citetitle{LeKhac2020}.
+In diesen Arbeiten wird auf die bisherigen Probleme der forensischen Aufarbeitung eingegangen, bieten aber einen guten Anhaltspunkt
+welche Probleme in zukünftigen Systemen auftreten könnten.
 
 % Fahrzeuge werden komplexer
 
@@ -174,6 +177,25 @@ Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \citetitle
 
 \section{Gesetzliche Initiativen}
 
+Die neuen Herausforderungen wurden auch von den Gesetzgebern erkannt und es wurden zwei Verordnungen auf den Weg gebracht.
+Diese sollen die Rekonstruktion und Schuldfeststellung eines Vorfalles unterstützen.
+
+\subsection{DSSAD}
+
+Das \ac{dssad} ist eine Anforderung an ein Speichersystem, explizit ausgerichtet auf autonome Fahrzeuge die dem Level 3 bis 5 der \ac{SAE} Definition entsprechen.
+Dabei werden bestimmte Datenpunkte definiert, die verpflichtend erhoben werden müssen, um festzustellen, wann die fahrende Person oder ein automatisiertes System das Fahrzeug lenken.
+Die Datenpunkte sind wie folgt definiert.
+\begin{itemize}
+  \item Die Zeit zu der das \ac{HAD} System den Status wechselt, zum Beispiel von `Aktiv' zu `Inaktiv', weitere Zustände werden von der ACSF-B2 Regulierung abgedeckt.
+  \item Die Zeit zu der das \ac{HAD} System die fahrende Person auffordert die Kontrolle über das Fahrzeug zu übernehmen.
+  \item Die Zeit zu der das \ac{HAD} System Aktionen mit minimalem Risiko unternimmt. Eine Liste dieser Aktionen wird auch in der ACSF-B2 Regulierung vorgeben.
+  \item Die Zeit zu der die fahrende Person die Kontrolle des Fahrzeuges übernimmt.
+\end{itemize}
+
+Die Art und Weise wie diese Daten abgerufen werden können ist in der Definition nur soweit definiert, dass spätestens 90 Tage nach Verkaufsstart des Fahrzeuges Werkzeuge
+zur Verfügung stehen müssen diese Daten auszulesen. Das Fehlen eines gemeinsamen Standards bedeuted im logischen Schluss aber auch, dass das Problem der vielen
+herstellerspeziefischen Werkzeuge nicht direkt behoben wird.\\
+Die EU Verordnung 2019/2144 definiert, dass das \ac{dssad} ab 2022 verpflichtend wird.
 % Jackpot: DSSAD / EDR
 
 \section{Forensische Standards}
@@ -203,11 +225,10 @@ Dafür haben sie fünf Kategorien identifiziert die aufgezeichnet werden sollen.
 \emph{Kontrolle} Unter die Kontrolle fallen die Aktionen, die von dem System ausgelöst werden.
   Das betrifft konkret die Beschleunigung, die Bremse und die Lenkung. 
   Ein neuer Eintrag wird erstellt, wenn das System entscheidet zu beschleunigen oder zu Bremsen,
-  oder wenn der Lenkwinkel einen bestimmten Grenzwert überschreitet. Wo dieser Grenzwert liegt, wurde nicht definiert.\\
+  oder wenn der Lenkwinkel einen bestimmten Grenzwert überschreitet. Wo dieser Grenzwert liegt, wurde nicht definiert.
 
 Durch das klare Format ist der Reverseengineeringaufwand von AVGuard deutlich geringer, allerdings sind die Daten, die
 von T-Box aufgenommen werden, umfangreicher. Leider werden im Paper über AVGuard keine Aussagen über die vollständigkeit getroffen.
-
 
 \subsection{Datenmenge}
 Die Datenmenge, die von den verschiedenen Systemen produziert wird, ist signifikant, bis zu 110MB/s oder 4000GB pro Tag.~\cite{Hoque_2021a}
@@ -233,16 +254,16 @@ Der Hash des nächsten Blocks wird wiederrum an den darauf folgenden angehängt,
 Diese Technik hat den Vorteil das es praktisch nicht möglich ist, mit Ausnahme des letzten Blocks, Änderungen vorzunehmen, ohne das eine
 Untersuchung diese Manipulation feststellen wird, vorrausgesetzt der Hashalgorithmus entspricht modernen kryptografischen Standardts.
 
-
-% Paper über  AVGuard macht Sensoren relevant
-
-% AVGuard + T-Box
-
 \section{Fazit}
+
+% EDR und DSSAD relevant für Unfälle, Forensische Frameworks sind interessant aber die Wahrscheinlichkeit für die Umsetzung ist niedrig
+
 \section*{Abkürzungen}
 \addcontentsline{toc}{section}{Abkürzungen}
 
 \begin{acronym}[IEEE]
+  \acro{HAD}{Highly-Automated-Driving}
+  \acro{dssad}[DSSAD]{Data Storage Systems for Automated Driving}
   \acro{GPS}{Global Positioning System}
   \acro{can}[CAN]{Controller Area Network}
   \acro{AVRCP}{Audio/Video Remote Control}
