@@ -45,16 +45,15 @@
 
 Seit einigen Jahren befindet sich die Automobilindustrie im Umbruch. Nicht nur steht der Wechsel zu Strom betriebenen Kraftfahrzeugen an,
 sondern auch der Wechsel zu immer mehr computergestützten Fahrsystemen, bis hin zum komplett autonomen Fahrzeug.
-
-Um diesen Umschwung zu ermöglichen, müssen immer mehr Daten erhoben werden und komplexere Systeme zum Auswerten dieser Daten geschaffen werden.
-Nach Aussagen von Intel aus dem Jahr 2016 könnten Daten von bis zu 4 Terrabyte pro Tag generiert werden.~\cite{Nelson2016}
+Um diesen Umschwung zu ermöglichen, müssen immer mehr Daten generiert werden und komplexere Systeme zum Auswerten dieser Daten geschaffen werden.
+Nach Aussagen von Intel aus dem Jahr 2016 könnten Daten von bis zu 4 Terrabyte pro Tag erzeugt werden.~\cite{Nelson2016}
 Die Firma Tuxera schätzte 2021 das ein durchschnittlicher US-amerikanischer Verbraucher zwischen 380 und 5100 TB pro Jahr generieren könnte.~\cite{Wright2021}
+Durch diese Umstellung hat auch die Forensik von Fahrzeugen und Unfallstellen immer mehr Überschneidung mit der digitalen Forensik gefunden.
+Fast jedes System eines modernen Autos ist inzwischen Computergestützt und kann im Zweifelsfall Informationen halten, die die Rekonstruion eines Vorfalls oder Tathergangs unterstützen können.
 Gleichzeitig gibt es einige Initiativen, sowohl gesetzlich\cite{Boehm2020}, als auch technische\cite{Hoque_2021a}\cite{Lee_2019}, um die neu entstehenden Systeme der Forensik zugänglicher zu gestalten.
 In dieser Arbeit soll die Frage geklärt werden, ob und wie diese Änderung die forensische Auswertung von Fahrzeugen verändern könnte.
 
 \section{Automatisiertes/Autonomes Fahren}
-
-% Eingehen auf relevante Punkte für die Forensik (z.B. Hände am Lenkrad)
 
 Für den Begriff des autonomen oder automatisierten Fahrens gibt es mehrere Definitionen, die sich jedoch im Kern gleichen.
 2013 definierte die \ac{NHTSA} folgende 5 Stufen\cite{NHTSA2013}:
@@ -83,8 +82,6 @@ Moderne Fahrzeuge bestehen aus vielen Einzelsystemen, die über einen gemeinsame
 Dabei fallen viele Daten an, die die forensische Auswertung unterstützen können. Im Folgenden werden die Systeme behandelt,
 die für autonome Fahrzeuge eine relevante Funktion einnehmen.
 Besonders die Sensoren können sehr relevant für die rekonstruktion eines Unfalles sein.
-
-% TODO: Relevanz der Systeme hervorheben
 
 \subsection{RADAR}
 
@@ -167,14 +164,29 @@ Eine Untersung verschiedener Infotainment Systeme ergab, das die folgenden Daten
 
 \section{Schwierigkeiten der automotiven Forensik}
 
-Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \citetitle{Kopencova_2020} und \citetitle{LeKhac2020}.
+Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \cite{Kopencova_2020} und \cite{LeKhac2020}.
 In diesen Arbeiten wird auf die bisherigen Probleme der forensischen Aufarbeitung eingegangen, bieten aber einen guten Anhaltspunkt
-welche Probleme in zukünftigen Systemen auftreten könnten.
+welche Probleme in zukünftigen Systemen auftreten könnten.\\
 
+\subsection{ECUs}
+Beide Paper heben als größtes problem hervor, dass die große Anzahl unterschiedlicher Komponenten ein starkes Problem darstellt.
+Zum Beispiel werden in einem modernen Fahrzeug üblicherweise mehr als 75 \ac{ECU}s verbaut.~\cite{Stopka_2019}
+Eine \ac{ECU} ist ein Mikrokontroller der Vorgänge im Fahrzeug kontrolliert, wie zum Beispiel den Zustand des Motors. Jede dieser
+Komponenten übernimmt dabei nur eine spezifische Aufgabe und erhalten ihre Anweisungen über das interne Netzwerk des Autos.\\
+Im Zweifelsfall müssen für jede dieser \ac{ECU}s spezielle Werkzeuge zur Verfügung stehen, da es keine standadisierte Zugriffsmöglichkeit
+auf die Hardware gibt.\\
+Das kann im schlechtesten Szenario bis zum `chip-off' führen, ein riskanter Prozess bei dem versucht wird den Speicherchip vom Rest der Elektronik
+zu lösen und direkt auszulesen.
+Werden dabei Fehler gemacht, können die Daten unwiederbringlich zerstört werden.\\
+Weiter wird angemerkt, dass, selbst wenn die Werkzeuge zur verfügung stehen, die Initialkosten um eine breite Anzahl von Autos untersuchen zu können,
+enorm sind. Konkrete Zahlen werden nicht genannt.\\
 
-% Fahrzeuge werden komplexer
-
-% Anzahl der Systeme wächst
+\subsection{Infotainment System}
+\Citeauthor{LeKhac2020} beschreiben in ihrere Arbeit unter anderem auch den Prozess das Infotainment zu untersuchen.
+Auch bei dem Infotainment System kann es im schlechtesten Fall zu einem `chip-off' kommen, allerdings finden sich oft entfernbare Festplatten in den Systemen.
+Dabei merken sie an, das aufgrund der vielzahl an Betriebssystemen, auch eine vielzahl an verschiedenen Dateisystemen genutzt wird.
+Sie stellen fest das auch hier keine alleinstehende Lösung existiert, die mit allen der Systeme umgehen kann, sondern meherere
+kommerzielle Werkzeuge genutzt werden müssen, um eine Abdeckung aller gängiger Systeme zu erreichen.
 
 \section{Gesetzliche Initiativen}
 
@@ -221,7 +233,7 @@ Laut einer Pressemitteilung der Europäischen Kommission wird der \ac{EDR} ab de
 Neben den gesetzlichen Initiativen zur Festlegung eines Standards gibt es auch technische Ansätze, um ein Framework zur forensischen
 Untersuchung autonomer Fahrzeuge zu schaffen. Im Gegensatz zu den gesetzlichen Vorschlägen decken diese auch Daten ab die von Sensoren
 wie den Kameras und dem \ac{LiDAR} erhoben werden.
-Im Folgenden werden zwei dieser technischen Lösungen, AVGuard\cite{Hoque_2021a} und T-Box\cite{Lee_201} betrachtet und welche Probleme der Forensik sie lösen.
+Im Folgenden werden zwei dieser technischen Lösungen, AVGuard\cite{Hoque_2021a} und T-Box\cite{Lee_2019} betrachtet und welche Probleme der Forensik sie lösen.
 Ob diese sich allerdings durchesetzen bleibet laut \Citeauthor{Kopencova_2020} zu bezweifelen. Laut ihnen
 hat sich gezeigt das durch die große Menge and Herstellern von Fahrzeugen und Anbietern von besthender Analysesoftware
 ein universeller Ansatz nicht existieren kann.
@@ -230,7 +242,7 @@ ein universeller Ansatz nicht existieren kann.
 
 Die beiden Ansätze unterscheiden sich stark im Ansatz welche Daten mitgeschrieben werden sollen.
 T-Box schlägt vor die Box Hardware direkt am Ethernet Backbone des Fahrzeuges anzubringen.
-Das Ziel ist es sämtliche Daten die über das interne Netzwerk versendet werden, aufzuzeichenen.
+Das Ziel ist es sämtliche Daten, die über das interne Netzwerk versendet werden, aufzuzeichenen.
 Im Gegensatz dazu schlägt AVGuard vor nur bestimmte Inhalte aufzuzeichnen.
 Dafür haben sie fünf Kategorien identifiziert die aufgezeichnet werden sollen.\\
 \emph{Sensoren} Darunter fallen Kamera, \ac{LiDAR}, \ac{GPS} und optional Ultraschall.\\
@@ -272,14 +284,28 @@ Der Hash des nächsten Blocks wird wiederrum an den darauf folgenden angehängt,
 Diese Technik hat den Vorteil das es praktisch nicht möglich ist, mit Ausnahme des letzten Blocks, Änderungen vorzunehmen, ohne das eine
 Untersuchung diese Manipulation feststellen wird, vorrausgesetzt der Hashalgorithmus entspricht modernen kryptografischen Standardts.
 
+\subsection{Privatsphäre}
+In der Eurpäischen Union ist seit 2018 die \ac{GDPR} in Kraft, die den Umgang mit persönlichen Daten
+reguliert. Da beide Ansätze vorschlagen einen Teil der gesammelten Daten in über das Internet zugänglichen Speicher
+abzulegen, sind auch beide von der Regulierung betroffen. Allerdings wird dieser Aspekt nur von dem Vorschlag zur T-Box angesprochen und dort als
+offene Frage die es zu klären gillt, dargestellt.~\cite{Lee_2019}
+
 \section{Fazit}
 
-% EDR und DSSAD relevant für Unfälle, Forensische Frameworks sind interessant aber die Wahrscheinlichkeit für die Umsetzung ist niedrig
+Die autonomen Fahrzeuge werden in ihrem Aufbau deutlich Komplexer als bisher vorhandene Systeme.
+Mit den neuen Datenquellen entstehen gibt es auch mehr Anhaltspunkte um einen Vorfall oder ein Verbrechen
+abzuleiten, allerdings werden auch die bestehenden Probleme, wie die große Anzahl von notwendigen Werkzeuge, verstärkt.\\
+Durch das Vorschreiben eines \ac{EDR} und der \ac{dssad} wird zumindest festgelegt, das bestimmte Daten zugänglich sein müssen,
+allerdings ist auch hier kein Standard definiert, wie diese abgerufen werden können müssen.
+Außerdem decken sie nicht die Fälle ab, in denen Daten aus einem längeren Zeitraum relevant sind, wie etwa Standortdaten eines gestohlenen Autos.\\
+Es existieren zwar Vorschläge für forensische Frameworks, die viele der bestehenden Probleme lösen würden, allerdings ist bisher nicht abzusehen, dass diese auch in der Praxis Anwendung finden.
 
 \section*{Abkürzungen}
 \addcontentsline{toc}{section}{Abkürzungen}
 
-\begin{acronym}[IEEE]
+\begin{acronym}[NHTSA]
+  \acro{GDPR}{General Data Protection Regulation}
+  \acro{ECU}{Electronic Control Unit}
   \acro{EDR}{Event Data Recorder}
   \acro{HAD}{Highly-Automated-Driving}
   \acro{dssad}[DSSAD]{Data Storage Systems for Automated Driving}
