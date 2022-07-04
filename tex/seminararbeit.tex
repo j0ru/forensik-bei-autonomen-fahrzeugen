@@ -50,7 +50,7 @@ Nach Aussagen von Intel aus dem Jahr 2016 könnten Daten von bis zu 4 Terrabyte 
 Die Firma Tuxera schätzte 2021 das ein durchschnittlicher US-amerikanischer Verbraucher zwischen 380 und 5100 TB pro Jahr generieren könnte.~\cite{Wright2021}
 Durch diese Umstellung hat auch die Forensik von Fahrzeugen und Unfallstellen immer mehr Überschneidung mit der digitalen Forensik gefunden.
 Fast jedes System eines modernen Autos ist inzwischen Computergestützt und kann im Zweifelsfall Informationen halten, die die Rekonstruion eines Vorfalls oder Tathergangs unterstützen können.
-Gleichzeitig gibt es einige Initiativen, sowohl gesetzlich\cite{Boehm2020}, als auch technische\cite{Hoque_2021a}\cite{Lee_2019}, um die neu entstehenden Systeme der Forensik zugänglicher zu gestalten.
+Gleichzeitig gibt es einige Initiativen, sowohl gesetzlich~\cite{Boehm2020}, als auch technische~\cite{Hoque_2021a}\cite{Lee_2019}, um die neu entstehenden Systeme der Forensik zugänglicher zu gestalten.
 In dieser Arbeit soll die Frage geklärt werden, ob und wie diese Änderung die forensische Auswertung von Fahrzeugen verändern könnte.
 Die Worte `Auto', `Fahrzeug' und `Vehikel' werden hier austauschbar verwendet. Gemeint ist ein Fahrzeug der Klasse M oder N nach der Definition des Kraftfahrt-Bundesamt.
 
@@ -95,7 +95,7 @@ Radare werden bereits für den assistierten Modus benutzt um z.B. Abstandsregelt
 \subsection{LiDAR}
 
 \ac{LiDAR} ist eine dem Radar ähnliche Technologie, die anhand der Zeit die ein Lichtimpuls braucht um zum Ziel und wieder zurückzukommen, berechnet wie weit das Ziel entfernt ist.
-Mit dieser Technik ist es möglich, zwei- und dreidimensionale Abbider der Umgebung zu schaffen.
+Mit dieser Technik ist es möglich, zwei- und dreidimensionale Abbilder der Umgebung zu schaffen.
 Um dieses Ziel zu erreichen wurde in der Vergangenheit ein rotierender Spiegel genutzt, um den Laser auf einer Ebene um das Auto zu bewegen.
 Dies erzeugt aber nur ein zweidimensionales Bild, also ein Abbild aller Objekte in einer Ebene um das Fahrzeug herum.
 Um auch mechanisch ein dreidimensionales Bild erzeugen zu können wird zusätzlich die Neigung des Spiegels verändert, um aus der Ebene ausbrechen zu können.
@@ -110,7 +110,7 @@ Dieses System wird von den meisten Herstellern autonomer Fahrzeuge benutzt, jedo
 \subsection{Kameras}
 
 Die Kameras eines autonomen Vehikels sind wahrscheinlich die wichtigsten Sensoren am Fahrzeug.
-Die Firma Tesla kündigte 2021 sogar an, nur noch auf Kameras zu setzen und das vorher noch benutzte Radar-System in Zukunft nicht mehr zu verbauen, sind damit aber ein Einzelfall.\cite{Koellner2022}
+Die Firma Tesla kündigte 2021 sogar an, nur noch auf Kameras zu setzen und das vorher noch benutzte Radar-System in Zukunft nicht mehr zu verbauen, sie sind damit aber ein Einzelfall.~\cite{Koellner2022}
 Kameras sind oft günstiger als andere Sensoren, haben allerdings die Schwäche das ihre Wahrnehmung, ähnlich wie beim LiDAR, leicht von schlechten Sichtverhältnissen beeinflusst werden.
 Außerdem enthalten sie von sich aus keine Tiefeninformationen, die besonders für \ac{acc} und die Kollisionsvermeidung relevant sind.
 Es ist allerdings möglich Tiefeninformationen aus Stereokameras abzuleiten, das benötigt allerdings zusätzlichen Rechenaufwand und führt zu Latenz.~\cite{Petit2022}\par
@@ -127,8 +127,8 @@ diese stellten sich allerdings als unzureichend und einfach manipulierbar heraus
 Ultraschallsensoren werden bereits für Einparkhilfen und Kollisionswarnungen genutzt.
 Die Sensoren arbeiten vergleichbar wie das Radar, allerdings werden keine Radiowellen genutzt,
 sondern kurzwelliger Schall, meistens zwischen 40kHz und 58kHz.~\cite{Zhaohua2020}
-Diese Methode hat allerdings den Nachteil das die Reichweite auf ca. 10 Meter begrenzt ist, und somit nur
-für Szenarien in denen sich das Fahrzeug langsam bewegt, geeignet ist.~\cite{Petit2022}
+Diese Methode hat allerdings den Nachteil, dass die Reichweite auf ca. 10 Meter begrenzt ist. Somit eignet sich das System nur
+für Szenarien in denen sich das Fahrzeug langsam bewegt.~\cite{Petit2022}
 
 \subsection{Infotainment System}
 
@@ -137,13 +137,13 @@ Wie dem Namen zu entnehmen ist, erfüllt dieses System zwei Funktionen:
 Zum einen macht es dem Fahrer Informationen über das Auto zugänglich zu und zum anderen kann es zur Unterhaltung genutzt werden.
 
 Während diese Systeme lange nur als Radio und zum Abspielen eigener physischer Medien wie Audiokassetten und CDs genutzt wurden,
-sind etwa ab 2010 viele neue Funktionen dazu gekommen.~\cite{Rossi2021}\par
+sind etwa ab 2010 viele neue Funktionen dazugekommen.~\cite{Rossi2021}\par
 
 Mit der Einführung von Bluetooth ist es nicht nur möglich geworden Audio über die integrierte Audioanlage des Autos abzuspielen,
 sondern diese auch für Anrufe zu benutzen. Durch das \ac{AVRCP} Protokoll werden zusätzlich Metadaten über die wiedergegebenen Medien
 an das Infotainment System gesendet, die bei einer forensichen Untersuchung relevant sein könnten.
 Ebenfalls ist es möglich sein Telefonbuch in das Infotainment System hochzuladen, ein Feature, das es dem Nutzer erleichtern soll
-Anrufe initieren zu können. Einige Modelle bieten Sprachsteuerungen an, mit denen der Fahrer einen Anruf starten kann, ohne den Blick von
+Anrufe initiieren zu können. Einige Modelle bieten Sprachsteuerungen an, mit denen der Fahrer einen Anruf starten kann, ohne den Blick von
 der Straße zu nehmen.\par
 Bei der Verwendung von der Bluetoothschnittstelle hinterlässt das verbunde Gerät einige Informationen, die zur eindeutigen Identifikation
 genutzt werden können und damit sehr wertvoll für eine Investigation des Fahrzeuges sind, sollte es nötig sein den Fahrer zu identifizieren.
@@ -166,7 +166,7 @@ Eine Untersung verschiedener Infotainment Systeme ergab, das die folgenden Daten
 \section{Schwierigkeiten der automotiven Forensik}
 
 Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \cite{Kopencova_2020} und \cite{LeKhac2020}.
-In diesen Arbeiten wird auf die bisherigen Probleme der forensischen Aufarbeitung eingegangen, bieten aber einen guten Anhaltspunkt
+In diesen Arbeiten wird auf die bisherigen Probleme der forensischen Aufarbeitung eingegangen, sie bieten dennoch einen guten Anhaltspunkt,
 welche Probleme in zukünftigen Systemen auftreten könnten.\\
 
 \subsection{ECUs}
@@ -176,7 +176,7 @@ Eine \ac{ECU} ist ein Mikrokontroller der Vorgänge im Fahrzeug kontrolliert, wi
 Komponenten übernimmt dabei nur eine spezifische Aufgabe und erhalten ihre Anweisungen über das interne Netzwerk des Autos.\\
 Im Zweifelsfall müssen für jede dieser \ac{ECU}s spezielle Werkzeuge zur Verfügung stehen, da es keine standadisierte Zugriffsmöglichkeit
 auf die Hardware gibt.\\
-Das kann im schlechtesten Szenario bis zum `chip-off' führen, ein riskanter Prozess bei dem versucht wird den Speicherchip vom Rest der Elektronik
+Das kann im schlechtesten Szenario bis zum `chip-off' führen, ein riskanter Prozess, bei dem versucht wird den Speicherchip vom Rest der Elektronik
 zu lösen und direkt auszulesen.
 Werden dabei Fehler gemacht, können die Daten unwiederbringlich zerstört werden.\\
 Weiter wird angemerkt, dass, selbst wenn die Werkzeuge zur verfügung stehen, die Initialkosten um eine breite Anzahl von Autos untersuchen zu können,
@@ -191,9 +191,9 @@ kommerzielle Werkzeuge genutzt werden müssen, um eine Abdeckung aller gängiger
 
 \section{Gesetzliche Initiativen}
 
-Die neuen Herausforderungen wurden auch von den Gesetzgebern erkannt und es wurden zwei Verordnungen auf den Weg gebracht.
+Die neuen Herausforderungen wurden auch von den Gesetzgebern erkannt, weshalb zwei Verordnungen erschaffen wurden.
 Diese sollen die Rekonstruktion und Schuldfeststellung eines Vorfalles unterstützen.
-Zwar helfen diese Systeme beim Rekonstruieren eines Unfalls, sind aber nicht anwendbar für die Untersuchung von Betrugs oder Diebstahlsfällen.~\cite{Boehm2020}
+Zwar helfen diese Systeme beim Rekonstruieren eines Unfalls, sie sind aber nicht anwendbar für die Untersuchung von Betrugs oder Diebstahlsfällen.~\cite{Boehm2020}
 
 \subsection{DSSAD}
 
@@ -207,8 +207,8 @@ Die Datenpunkte sind wie folgt definiert.
   \item Die Zeit zu der die fahrende Person die Kontrolle des Fahrzeuges übernimmt.
 \end{itemize}
 
-Die Art und Weise wie diese Daten abgerufen werden können ist in der Definition nur soweit definiert, dass spätestens 90 Tage nach Verkaufsstart des Fahrzeuges Werkzeuge
-zur Verfügung stehen müssen diese Daten auszulesen. Das Fehlen eines gemeinsamen Standards bedeuted im logischen Schluss aber auch, dass das Problem der vielen
+Die Art und Weise, wie diese Daten abgerufen werden können, ist in der Definition nur soweit definiert, dass spätestens 90 Tage nach Verkaufsstart des Fahrzeuges, Werkzeuge
+zur Verfügung stehen müssen. Das Fehlen eines gemeinsamen Standards bedeuted im logischen Schluss aber auch, dass das Problem der vielen
 herstellerspeziefischen Werkzeuge nicht direkt behoben wird.\\
 Die EU Verordnung 2019/2144 definiert, dass das \ac{dssad} ab 2022 verpflichtend wird.
 
@@ -219,14 +219,14 @@ später in der forensischen Analyse nutzen zu können.
 Dabei ist ein Ereigniss definiert als der Moment, in dem einer der Airbags ausgelöst wird.~\cite{NHTSA_2018}
 Dieses Kriterium wird allerdings von einer Arbeit über den EDR in autonomen Fahrzeugen als unzureichend kiritisiert.~\cite{Boehm2020}
 In einem Vorschlag für einen neuen Standard zur Aufzeichnung von Fahrzeugdaten für die forensische Anwendung wird außerdem angemerkt,
-dass ein solches System manipulierbar ist und nicht immer als Beweis genutzt werden könnte.~\cite{LEE_2019}
+dass ein solches System manipulierbar ist und nicht immer als Beweis genutzt werden könnte.~\cite{Lee_2019}
 Ein Paper über die Schwierigkeiten der Forensik bei Fahrzeugen bemängelte außerdem, dass der \ac{EDR} nur in wenigen Fällen anwendbar ist
 und für Fälle des Betrugs oder der Manipulation des Fahrzeuges nicht nützlich ist.~\cite{Kopencova_2020}
 
 Die Vorgaben decken viele der klassischen Systeme in einem Fahrzeug ab, beziehen sich aber in keiner Weise auf die neueren Systeme, die für das autonome Fahren eingeführt wurden.
 
-Wie auch bei der DSSAD sind Hersteller verpfichted Werkzeuge zum Auslesen des \ac{EDR} kommerziell anzubieten. Das Problem der Frakmentierung und der hohen Kosten für
-die allgemeine Möglichkeit das \ac{EDR} auszulesen bleiben also bestehen.
+Wie auch bei der DSSAD sind Hersteller verpfichted Werkzeuge zum Auslesen des \ac{EDR} kommerziell anzubieten. Das Problem der Fragmentierung und der hohen Kosten für
+die allgemeine Möglichkeit das \ac{EDR} auszulesen, bleiben also bestehen.
 Laut einer Pressemitteilung der Europäischen Kommission wird der \ac{EDR} ab dem Jahr 2022 verpflichtend.~\cite{EuropeanCommision_2019}
 
 \section{Forensische Standards}
@@ -234,17 +234,18 @@ Laut einer Pressemitteilung der Europäischen Kommission wird der \ac{EDR} ab de
 Neben den gesetzlichen Initiativen zur Festlegung eines Standards gibt es auch technische Ansätze, um ein Framework zur forensischen
 Untersuchung autonomer Fahrzeuge zu schaffen. Im Gegensatz zu den gesetzlichen Vorschlägen decken diese auch Daten ab die von Sensoren
 wie den Kameras und dem \ac{LiDAR} erhoben werden.
-Im Folgenden werden zwei dieser technischen Lösungen, AVGuard\cite{Hoque_2021a} und T-Box\cite{Lee_2019} betrachtet und welche Probleme der Forensik sie lösen.
-Ob diese sich allerdings durchesetzen bleibet laut \Citeauthor{Kopencova_2020} zu bezweifelen. Laut ihnen
-hat sich gezeigt das durch die große Menge and Herstellern von Fahrzeugen und Anbietern von besthender Analysesoftware
+Im Folgenden werden zwei dieser technischen Lösungen, AVGuard~\cite{Hoque_2021a} und T-Box~\cite{Lee_2019}, betrachtet und welche Probleme der Forensik sie lösen.
+Ob diese sich allerdings durchesetzen bleibet laut \cite{Kopencova_2020} zu bezweifelen.
+Laut ihnen
+hat sich gezeigt, dass durch die große Menge and Herstellern von Fahrzeugen und Anbietern von besthender Analysesoftware
 ein universeller Ansatz nicht existieren kann.
 
 \subsection{Erfasste Daten}
 
-Die beiden Ansätze unterscheiden sich stark im Ansatz welche Daten mitgeschrieben werden sollen.
-T-Box schlägt vor die Box Hardware direkt am Ethernet Backbone des Fahrzeuges anzubringen.
-Das Ziel ist es sämtliche Daten, die über das interne Netzwerk versendet werden, aufzuzeichenen.
-Im Gegensatz dazu schlägt AVGuard vor nur bestimmte Inhalte aufzuzeichnen.
+Die beiden Systeme unterscheiden sich stark im Ansatz welche Daten mitgeschrieben werden sollen.
+T-Box schlägt vor, die Box Hardware direkt am Ethernet Backbone des Fahrzeuges anzubringen.
+Das Ziel ist es sämtliche Daten, die über das interne Netzwerk versendet werden, aufzuzeichnen.
+Im Gegensatz dazu schlägt AVGuard vor, nur bestimmte Inhalte aufzuzeichnen.
 Dafür haben sie fünf Kategorien identifiziert die aufgezeichnet werden sollen.\\
 \emph{Sensoren} Darunter fallen Kamera, \ac{LiDAR}, \ac{GPS} und optional Ultraschall.\\
 \emph{Wahrnemung} Die Wahrnemung beschreibt welche Objekte aus den Daten der Sensoren abgeleitet werden konnten.
@@ -259,44 +260,45 @@ Dafür haben sie fünf Kategorien identifiziert die aufgezeichnet werden sollen.
   oder wenn der Lenkwinkel einen bestimmten Grenzwert überschreitet. Wo dieser Grenzwert liegt, wurde nicht definiert.
 
 Durch das klare Format ist der Reverseengineeringaufwand von AVGuard deutlich geringer, allerdings sind die Daten, die
-von T-Box aufgenommen werden, umfangreicher. Leider werden im Paper über AVGuard keine Aussagen über die vollständigkeit getroffen.
+von T-Box aufgenommen werden, umfangreicher. Leider werden im Paper zu AVGuard keine Aussagen über die vollständigkeit getroffen.
 
 \subsection{Datenmenge}
-Die Datenmenge, die von den verschiedenen Systemen produziert wird, ist signifikant, bis zu 110MB/s oder 4000GB pro Tag.~\cite{Hoque_2021a}
+Die neuen Sensoren und Verarbeitungssysteme generieren bis zu 110MB/s oder 4000GB pro Tag.~\cite{Hoque_2021a}
 Zur Lösung des Problems wird in dem Vorschlag zu AVGuard ein ausreichender lokaler Speicher vorgeschlagen, der noch mit
 zusätzlichem Platz in einer online Platform erweitert werden kann. Auf datenschutzrechtliche Aspekte wird nicht eingegangen.
 In dem Paper über T-Box wird noch auf die Effizienz von Kompressionsalgorithmen eingegangen. Dabei haben sie mit dem zip Kompressionsalgorithmus
 eine Rate von 17.4\% auf in Simulationen erfassten Daten erreicht. Aber auch sie schlagen einen zusätzlichen Cloudspeicher vor,
 eine Kompression würde nur den Netzverkehr und den benötigten lokalen Speicherplatz verringern.
-Abschließend geben sie noch zu bedenken das mit der Kompression auch die Fehleranfälligkeit steigt, da ein einzelnes korrumpiertes Bit
+Abschließend geben sie noch zu bedenken, dass mit der Kompression auch die Fehleranfälligkeit steigt, da ein einzelnes korrumpiertes Bit
 einen größeren Datensatz beeinflussen kann.
 
 \subsection{Datenintegrität}
 
-Eine wesentliche Schwierigkeit der Forensik ist die Daten zu erheben, ohne sie zu verändern. Ohne einen dedizierten Zugang
-zu den Daten, kann dies einen physischen Eingriff ins System, wie zum Beispiel einen Chip-of bedeuten.
-Außerdem ist sicherzustellen das die Daten nicht im Nachhinein manipuliert wurden, beispielsweise vom Täter.
+Eine wesentliche Schwierigkeit der Forensik ist, die Daten zu erheben, ohne sie zu verändern. Ohne einen dedizierten Zugang
+zu den Daten, kann dies einen physischen Eingriff ins System, wie zum Beispiel einen Chip-off bedeuten.
+Außerdem ist sicherzustellen, dass die Daten nicht im Nachhinein manipuliert wurden, beispielsweise vom Täter.
 Auch dafür bieten beide Vorschläge eine Lösung, die sich aber im Konzept sehr ähneln.
-Beide setzen für die Validierung der Daten und die Detektion einer vorsätzlichen Änderung eine Hashkette ein.\\
+Beide setzen für die Validierung der Daten und die Detektion einer vorsätzlichen Änderung, eine Hashkette ein.\\
 Eine Hashkette ist ein Konstrukt aus der Kryptografie.
 Dabei werden Datensätze zu Blöcken zusammengefast und mit einem privaten Schlüssel verschlüsselt.
-Anschließend wird ein Hash über die verschlüsselten Daten erstellt der an den nächsten erzeugten Datenblock angehängt wird.
+Anschließend wird ein Hash über die verschlüsselten Daten erstellt, der an den nächsten erzeugten Datenblock angehängt wird.
 Der Hash des nächsten Blocks wird wiederrum an den darauf folgenden angehängt, usw.
-Diese Technik hat den Vorteil das es praktisch nicht möglich ist, mit Ausnahme des letzten Blocks, Änderungen vorzunehmen, ohne das eine
-Untersuchung diese Manipulation feststellen wird, vorrausgesetzt der Hashalgorithmus entspricht modernen kryptografischen Standardts.
+Diese Technik hat den Vorteil, dass es praktisch nicht möglich ist, mit Ausnahme des letzten Blocks, Änderungen vorzunehmen, ohne das eine
+Untersuchung diese Manipulation feststellen wird. 
+Dabei gillt natürlich die Vorraussetzung, dass der Hashalgorithmus modernen kryptografischen Standardts entspricht.
 
 \subsection{Privatsphäre}
 In der Eurpäischen Union ist seit 2018 die \ac{GDPR} in Kraft, die den Umgang mit persönlichen Daten
 reguliert. Da beide Ansätze vorschlagen einen Teil der gesammelten Daten in über das Internet zugänglichen Speicher
 abzulegen, sind auch beide von der Regulierung betroffen. Allerdings wird dieser Aspekt nur von dem Vorschlag zur T-Box angesprochen und dort als
-offene Frage die es zu klären gillt, dargestellt.~\cite{Lee_2019}
+offene Frage, die es zu klären gillt, dargestellt.~\cite{Lee_2019}
 
 \section{Fazit}
 
 Die autonomen Fahrzeuge werden in ihrem Aufbau deutlich Komplexer als bisher vorhandene Systeme.
-Mit den neuen Datenquellen entstehen gibt es auch mehr Anhaltspunkte um einen Vorfall oder ein Verbrechen
+Mit den neuen Datenquellen gibt es auch mehr Anhaltspunkte um einen Vorfall oder ein Verbrechen
 abzuleiten, allerdings werden auch die bestehenden Probleme, wie die große Anzahl von notwendigen Werkzeuge, verstärkt.\\
-Durch das Vorschreiben eines \ac{EDR} und der \ac{dssad} wird zumindest festgelegt, das bestimmte Daten zugänglich sein müssen,
+Durch das Vorschreiben eines \ac{EDR} und der \ac{dssad} wird zumindest festgelegt, dass bestimmte Daten zugänglich sein müssen,
 allerdings ist auch hier kein Standard definiert, wie diese abgerufen werden können müssen.
 Außerdem decken sie nicht die Fälle ab, in denen Daten aus einem längeren Zeitraum relevant sind, wie etwa Standortdaten eines gestohlenen Autos.\\
 Es existieren zwar Vorschläge für forensische Frameworks, die viele der bestehenden Probleme lösen würden, allerdings ist bisher nicht abzusehen, dass diese auch in der Praxis Anwendung finden.
