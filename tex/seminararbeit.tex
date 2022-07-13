@@ -46,13 +46,18 @@
 Seit einigen Jahren befindet sich die Automobilindustrie im Umbruch. Nicht nur steht der Wechsel zu Strom betriebenen Kraftfahrzeugen an,
 sondern auch der Wechsel zu immer mehr computergestützten Fahrsystemen, bis hin zum komplett autonomen Fahrzeug.
 Um diesen Umschwung zu ermöglichen, müssen immer mehr Daten generiert werden und komplexere Systeme zum Auswerten dieser Daten geschaffen werden.
-Nach Aussagen von Intel aus dem Jahr 2016 könnten Daten von bis zu 4 Terrabyte pro Tag erzeugt werden.~\cite{Nelson2016}
-Die Firma Tuxera schätzte 2021 das ein durchschnittlicher US-amerikanischer Verbraucher zwischen 380 und 5100 TB pro Jahr generieren könnte.~\cite{Wright2021}
+Nach Aussagen von Intel aus dem Jahr 2016 könnten Daten von bis zu 4 Terrabyte pro Tag erzeugt werden~\cite{Nelson2016}.
+Die Firma Tuxera schätzte 2021 das ein durchschnittlicher US-amerikanischer Verbraucher zwischen 380 und 5100 TB pro Jahr generieren könnte~\cite{Wright2021}.
 Durch diese Umstellung hat auch die Forensik von Fahrzeugen und Unfallstellen immer mehr Überschneidung mit der digitalen Forensik gefunden.
 Fast jedes System eines modernen Autos ist inzwischen Computergestützt und kann im Zweifelsfall Informationen halten, die die Rekonstruion eines Vorfalls oder Tathergangs unterstützen können.
 Gleichzeitig gibt es einige Initiativen, sowohl gesetzlich~\cite{Boehm2020}, als auch technische~\cite{Hoque_2021a}\cite{Lee_2019}, um die neu entstehenden Systeme der Forensik zugänglicher zu gestalten.
 In dieser Arbeit soll die Frage geklärt werden, ob und wie diese Änderung die forensische Auswertung von Fahrzeugen verändern könnte.
 Die Worte `Auto', `Fahrzeug' und `Vehikel' werden hier austauschbar verwendet. Gemeint ist ein Fahrzeug der Klasse M oder N nach der Definition des Kraftfahrt-Bundesamt.
+Zu Beginn wird in Abschnitt 2 zusammengefasst, welche Definitionen es für autonomes Fahren gibt. Anschließend in Kapitel 3 werden die verschiedenen
+Sensoren und Systeme erklärt, die für ein autonomes Fahrzeug relevant sind.
+In Kapitel 4 wird aufgezeigt welche Schwierigkeiten es bei der Forensik von Fahrzeugen bisher gab.
+Darauffolgend geht es um gesetzliche Initaitiven um diese Probleme in Zukunft zu vermeiden und in Kapitel 6 werden zwei vorgeschlagene Standards
+besprochen und wie diese die Probleme der Forensik lösen wollen. Das letztet Kapitel fasst die Inhalte zusammen.
 
 \section{Automatisiertes/Autonomes Fahren}
 
@@ -89,7 +94,7 @@ Besonders die Sensoren können sehr relevant für die rekonstruktion eines Unfal
 Radar Systeme sind eine relative alte Erfindung, finden aber auch in den modernsten Fahrzeugen noch Einsatz.
 Dabei werden Radiowellen benutzt um die Entfernungen zu Objekten in der Umgebung zu messen.
 Im Gegensatz zum Lidar werden Radiowellen deutlich weniger von der Umgebung verschluckt und haben damit eine
-größere Reichweite.~\cite{Neal2018} Außerdem ist es möglich durch den Dopplereffekt die Bewegungsrichtung von Objekten abzuleiten.
+größere Reichweite~\cite{Neal2018}. Außerdem ist es möglich durch den Dopplereffekt die Bewegungsrichtung von Objekten abzuleiten.
 Radare werden bereits für den assistierten Modus benutzt um z.B. Abstandsregeltempomaten umzusetzen.
 
 \subsection{LiDAR}
@@ -103,9 +108,9 @@ Erkennbar sind diese Systeme an einem charakteristischen runden Aufbau auf dem D
 Ein Ansatz, der weniger auf mechanische Bauteile setzt, benutzt einen starken Blitz im nicht sichtbaren Spektrum, der dann von einem zweidimensionalen Detektor aufgenommen werden kann.
 Zusätzlich mit den Tiefeninformation, die aus der Verzögerung des Echos abgeleitet werden können, wird eine Punktwolke abgeleitet die ein dreidimensionales Abbild der Umgebung
 schaffen. Im Gegensatz zum mechanischen \ac{LiDAR} hat diese Technik kaum bewegliche Teile und ist dadurch weniger verschleißanfällig, allerdings bringt der Lichtblitz ein eigenes Problem mit,
-er führt zu starken Verbrauchsspitzen.~\cite{Zhaohua2020}\\
-Im Gegensatz zum Radar nimmt die Effektivität bei schlechten Wetterbedingungen, wie Schnee, Regen, Nebel und Staub, bei beiden Ansätzen jedoch stark ab.~\cite{Neal2018}
-Dieses System wird von den meisten Herstellern autonomer Fahrzeuge benutzt, jedoch nicht von allen.~\cite{Dickson2021}
+er führt zu starken Verbrauchsspitzen~\cite{Zhaohua2020}.\\
+Im Gegensatz zum Radar nimmt die Effektivität bei schlechten Wetterbedingungen, wie Schnee, Regen, Nebel und Staub, bei beiden Ansätzen jedoch stark ab~\cite{Neal2018}.
+Dieses System wird von den meisten Herstellern autonomer Fahrzeuge benutzt, jedoch nicht von allen~\cite{Dickson2021}.
 
 \subsection{Kameras}
 
@@ -120,15 +125,15 @@ Nach Einführung der Stufe 3 des autonomen Fahrens in Amerika hat sich in vielen
 ihre Aufmerksamkeitspflicht verletzen und nicht in kurzer Zeit fähig sind in das Fahrgeschehen einzugreifen.
 Mittels der internen Kameras kann überwacht werden, ob die Aufmerksamkeit des Fahrers tatsächlich der Straße gillt.
 Zu diesem Zweck hatte Tesla Sensoren im Lenkrad verbaut, die die Präsenz der Hände am Lenkrad sicherstellen sollten,
-diese stellten sich allerdings als unzureichend und einfach manipulierbar heraus.~\cite{Trudell2021}
+diese stellten sich allerdings als unzureichend und einfach manipulierbar heraus~\cite{Trudell2021}.
 
 \subsection{Ultraschall}
 
 Ultraschallsensoren werden bereits für Einparkhilfen und Kollisionswarnungen genutzt.
 Die Sensoren arbeiten vergleichbar wie das Radar, allerdings werden keine Radiowellen genutzt,
-sondern kurzwelliger Schall, meistens zwischen 40kHz und 58kHz.~\cite{Zhaohua2020}
+sondern kurzwelliger Schall, meistens zwischen 40kHz und 58kHz~\cite{Zhaohua2020}.
 Diese Methode hat allerdings den Nachteil, dass die Reichweite auf ca. 10 Meter begrenzt ist. Somit eignet sich das System nur
-für Szenarien in denen sich das Fahrzeug langsam bewegt.~\cite{Petit2022}
+für Szenarien in denen sich das Fahrzeug langsam bewegt~\cite{Petit2022}.
 
 \subsection{Infotainment System}
 
@@ -137,7 +142,7 @@ Wie dem Namen zu entnehmen ist, erfüllt dieses System zwei Funktionen:
 Zum einen macht es dem Fahrer Informationen über das Auto zugänglich zu und zum anderen kann es zur Unterhaltung genutzt werden.
 
 Während diese Systeme lange nur als Radio und zum Abspielen eigener physischer Medien wie Audiokassetten und CDs genutzt wurden,
-sind etwa ab 2010 viele neue Funktionen dazugekommen.~\cite{Rossi2021}\par
+sind etwa ab 2010 viele neue Funktionen dazugekommen~\cite{Rossi2021}.\par
 
 Mit der Einführung von Bluetooth ist es nicht nur möglich geworden Audio über die integrierte Audioanlage des Autos abzuspielen,
 sondern diese auch für Anrufe zu benutzen. Durch das \ac{AVRCP} Protokoll werden zusätzlich Metadaten über die wiedergegebenen Medien
@@ -165,13 +170,13 @@ Eine Untersung verschiedener Infotainment Systeme ergab, das die folgenden Daten
 
 \section{Schwierigkeiten der automotiven Forensik}
 
-Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus \cite{Kopencova_2020} und \cite{LeKhac2020}.
+Die folgende Sektion basiert größtenteils auf den Erkenntnissen aus~\cite{Kopencova_2020} und~\cite{LeKhac2020}.
 In diesen Arbeiten wird auf die bisherigen Probleme der forensischen Aufarbeitung eingegangen, sie bieten dennoch einen guten Anhaltspunkt,
 welche Probleme in zukünftigen Systemen auftreten könnten.\\
 
-\subsection{ECUs}
+\subsection{Electronic Control Units}
 Beide Paper heben als größtes problem hervor, dass die große Anzahl unterschiedlicher Komponenten ein starkes Problem darstellt.
-Zum Beispiel werden in einem modernen Fahrzeug üblicherweise mehr als 75 \ac{ECU}s verbaut.~\cite{Stopka_2019}
+Zum Beispiel werden in einem modernen Fahrzeug üblicherweise mehr als 75 \ac{ECU}s verbaut~\cite{Stopka_2019}.
 Eine \ac{ECU} ist ein Mikrokontroller der Vorgänge im Fahrzeug kontrolliert, wie zum Beispiel den Zustand des Motors. Jede dieser
 Komponenten übernimmt dabei nur eine spezifische Aufgabe und erhalten ihre Anweisungen über das interne Netzwerk des Autos.\\
 Im Zweifelsfall müssen für jede dieser \ac{ECU}s spezielle Werkzeuge zur Verfügung stehen, da es keine standadisierte Zugriffsmöglichkeit
@@ -195,7 +200,7 @@ Die neuen Herausforderungen wurden auch von den Gesetzgebern erkannt, weshalb zw
 Diese sollen die Rekonstruktion und Schuldfeststellung eines Vorfalles unterstützen.
 Zwar helfen diese Systeme beim Rekonstruieren eines Unfalls, sie sind aber nicht anwendbar für die Untersuchung von Betrugs oder Diebstahlsfällen.~\cite{Boehm2020}
 
-\subsection{DSSAD}
+\subsection{Data Storage Systems for Automated Driving}
 
 Das \ac{dssad} ist eine Anforderung an ein Speichersystem, explizit ausgerichtet auf autonome Fahrzeuge die dem Level 3 bis 5 der \ac{sae} Definition entsprechen.
 Dabei werden bestimmte Datenpunkte definiert, die verpflichtend erhoben werden müssen, um festzustellen, wann die fahrende Person oder ein automatisiertes System das Fahrzeug lenken.
@@ -212,22 +217,22 @@ zur Verfügung stehen müssen. Das Fehlen eines gemeinsamen Standards bedeuted i
 herstellerspeziefischen Werkzeuge nicht direkt behoben wird.\\
 Die EU Verordnung 2019/2144 definiert, dass das \ac{dssad} ab 2022 verpflichtend wird.
 
-\subsection{EDR}
+\subsection{Event Data Recorder}
 
 Der \ac{EDR} ist eine sogenannte Blackbox die im Falle eines Ereignisses, zum Beispiel eines Unfalls, Daten über den Zustand des Fahrzeuges abspeichern soll, um diese
 später in der forensischen Analyse nutzen zu können.
-Dabei ist ein Ereigniss definiert als der Moment, in dem einer der Airbags ausgelöst wird.~\cite{NHTSA_2018}
-Dieses Kriterium wird allerdings von einer Arbeit über den EDR in autonomen Fahrzeugen als unzureichend kiritisiert.~\cite{Boehm2020}
+Dabei ist ein Ereigniss definiert als der Moment, in dem einer der Airbags ausgelöst wird~\cite{NHTSA_2018}.
+Dieses Kriterium wird allerdings von einer Arbeit über den EDR in autonomen Fahrzeugen als unzureichend kiritisiert~\cite{Boehm2020}.
 In einem Vorschlag für einen neuen Standard zur Aufzeichnung von Fahrzeugdaten für die forensische Anwendung wird außerdem angemerkt,
-dass ein solches System manipulierbar ist und nicht immer als Beweis genutzt werden könnte.~\cite{Lee_2019}
+dass ein solches System manipulierbar ist und nicht immer als Beweis genutzt werden könnte~\cite{Lee_2019}.
 Ein Paper über die Schwierigkeiten der Forensik bei Fahrzeugen bemängelte außerdem, dass der \ac{EDR} nur in wenigen Fällen anwendbar ist
-und für Fälle des Betrugs oder der Manipulation des Fahrzeuges nicht nützlich ist.~\cite{Kopencova_2020}
+und für Fälle des Betrugs oder der Manipulation des Fahrzeuges nicht nützlich ist~\cite{Kopencova_2020}.
 
 Die Vorgaben decken viele der klassischen Systeme in einem Fahrzeug ab, beziehen sich aber in keiner Weise auf die neueren Systeme, die für das autonome Fahren eingeführt wurden.
 
 Wie auch bei der DSSAD sind Hersteller verpfichted Werkzeuge zum Auslesen des \ac{EDR} kommerziell anzubieten. Das Problem der Fragmentierung und der hohen Kosten für
 die allgemeine Möglichkeit das \ac{EDR} auszulesen, bleiben also bestehen.
-Laut einer Pressemitteilung der Europäischen Kommission wird der \ac{EDR} ab dem Jahr 2022 verpflichtend.~\cite{EuropeanCommision_2019}
+Laut einer Pressemitteilung der Europäischen Kommission wird der \ac{EDR} ab dem Jahr 2022 verpflichtend~\cite{EuropeanCommision_2019}.
 
 \section{Forensische Standards}
 
@@ -235,7 +240,7 @@ Neben den gesetzlichen Initiativen zur Festlegung eines Standards gibt es auch t
 Untersuchung autonomer Fahrzeuge zu schaffen. Im Gegensatz zu den gesetzlichen Vorschlägen decken diese auch Daten ab die von Sensoren
 wie den Kameras und dem \ac{LiDAR} erhoben werden.
 Im Folgenden werden zwei dieser technischen Lösungen, AVGuard~\cite{Hoque_2021a} und T-Box~\cite{Lee_2019}, betrachtet und welche Probleme der Forensik sie lösen.
-Ob diese sich allerdings durchesetzen bleibet laut \cite{Kopencova_2020} zu bezweifelen.
+Ob diese sich allerdings durchesetzen bleibet laut~\cite{Kopencova_2020} zu bezweifelen.
 Laut ihnen
 hat sich gezeigt, dass durch die große Menge and Herstellern von Fahrzeugen und Anbietern von besthender Analysesoftware
 ein universeller Ansatz nicht existieren kann.
@@ -247,23 +252,25 @@ T-Box schlägt vor, die Box Hardware direkt am Ethernet Backbone des Fahrzeuges 
 Das Ziel ist es sämtliche Daten, die über das interne Netzwerk versendet werden, aufzuzeichnen.
 Im Gegensatz dazu schlägt AVGuard vor, nur bestimmte Inhalte aufzuzeichnen.
 Dafür haben sie fünf Kategorien identifiziert die aufgezeichnet werden sollen.\\
-\emph{Sensoren} Darunter fallen Kamera, \ac{LiDAR}, \ac{GPS} und optional Ultraschall.\\
-\emph{Wahrnemung} Die Wahrnemung beschreibt welche Objekte aus den Daten der Sensoren abgeleitet werden konnten.
-  Die vorgeschlagenen Objekte sind Autos, Personen, Lichtsignalanlagen, Straßenschilder,
-  die Sicherheit mit der die Straßenbegrenzung erkannt wurde und unbekannte Objekte.\\
-\emph{Lokalisation} Die Position des Fahrzeuges, mit einer Auflösung zwischen 2 und 10 Centimetern.\\
-\emph{Planung} Die Planungskategorie beschreibt das momentane Vorhaben des Fahrzeuges.
-  Ein Logeintrag wird erstellt, wenn sich die Planung ändert.\\
-\emph{Kontrolle} Unter die Kontrolle fallen die Aktionen, die von dem System ausgelöst werden.
-  Das betrifft konkret die Beschleunigung, die Bremse und die Lenkung. 
-  Ein neuer Eintrag wird erstellt, wenn das System entscheidet zu beschleunigen oder zu Bremsen,
-  oder wenn der Lenkwinkel einen bestimmten Grenzwert überschreitet. Wo dieser Grenzwert liegt, wurde nicht definiert.
+\begin{itemize}
+  \item\emph{Sensoren} Darunter fallen Kamera, \ac{LiDAR}, \ac{GPS} und optional Ultraschall.\\
+  \item\emph{Wahrnemung} Die Wahrnemung beschreibt welche Objekte aus den Daten der Sensoren abgeleitet werden konnten.
+    Die vorgeschlagenen Objekte sind Autos, Personen, Lichtsignalanlagen, Straßenschilder,
+    die Sicherheit mit der die Straßenbegrenzung erkannt wurde und unbekannte Objekte.\\
+  \item\emph{Lokalisation} Die Position des Fahrzeuges, mit einer Auflösung zwischen 2 und 10 Centimetern.\\
+  \item\emph{Planung} Die Planungskategorie beschreibt das momentane Vorhaben des Fahrzeuges.
+    Ein Logeintrag wird erstellt, wenn sich die Planung ändert.\\
+  \item\emph{Kontrolle} Unter die Kontrolle fallen die Aktionen, die von dem System ausgelöst werden.
+    Das betrifft konkret die Beschleunigung, die Bremse und die Lenkung. 
+    Ein neuer Eintrag wird erstellt, wenn das System entscheidet zu beschleunigen oder zu Bremsen,
+    oder wenn der Lenkwinkel einen bestimmten Grenzwert überschreitet. Wo dieser Grenzwert liegt, wurde nicht definiert.
+\end{itemize}
 
 Durch das klare Format ist der Reverseengineeringaufwand von AVGuard deutlich geringer, allerdings sind die Daten, die
 von T-Box aufgenommen werden, umfangreicher. Leider werden im Paper zu AVGuard keine Aussagen über die vollständigkeit getroffen.
 
 \subsection{Datenmenge}
-Die neuen Sensoren und Verarbeitungssysteme generieren bis zu 110MB/s oder 4000GB pro Tag.~\cite{Hoque_2021a}
+Die neuen Sensoren und Verarbeitungssysteme generieren bis zu 110MB/s oder 4000GB pro Tag~\cite{Hoque_2021a}.
 Zur Lösung des Problems wird in dem Vorschlag zu AVGuard ein ausreichender lokaler Speicher vorgeschlagen, der noch mit
 zusätzlichem Platz in einer online Platform erweitert werden kann. Auf datenschutzrechtliche Aspekte wird nicht eingegangen.
 In dem Paper über T-Box wird noch auf die Effizienz von Kompressionsalgorithmen eingegangen. Dabei haben sie mit dem zip Kompressionsalgorithmus
@@ -291,7 +298,7 @@ Dabei gillt natürlich die Vorraussetzung, dass der Hashalgorithmus modernen kry
 In der Eurpäischen Union ist seit 2018 die \ac{GDPR} in Kraft, die den Umgang mit persönlichen Daten
 reguliert. Da beide Ansätze vorschlagen einen Teil der gesammelten Daten in über das Internet zugänglichen Speicher
 abzulegen, sind auch beide von der Regulierung betroffen. Allerdings wird dieser Aspekt nur von dem Vorschlag zur T-Box angesprochen und dort als
-offene Frage, die es zu klären gillt, dargestellt.~\cite{Lee_2019}
+offene Frage, die es zu klären gillt, dargestellt~\cite{Lee_2019}.
 
 \section{Fazit}
 
@@ -299,7 +306,7 @@ Die autonomen Fahrzeuge werden in ihrem Aufbau deutlich Komplexer als bisher vor
 Mit den neuen Datenquellen gibt es auch mehr Anhaltspunkte um einen Vorfall oder ein Verbrechen
 abzuleiten, allerdings werden auch die bestehenden Probleme, wie die große Anzahl von notwendigen Werkzeuge, verstärkt.\\
 Durch das Vorschreiben eines \ac{EDR} und der \ac{dssad} wird zumindest festgelegt, dass bestimmte Daten zugänglich sein müssen,
-allerdings ist auch hier kein Standard definiert, wie diese abgerufen werden können müssen.
+allerdings ist auch hier kein Standard definiert, wie diese abgerufen werden können.
 Außerdem decken sie nicht die Fälle ab, in denen Daten aus einem längeren Zeitraum relevant sind, wie etwa Standortdaten eines gestohlenen Autos.\\
 Es existieren zwar Vorschläge für forensische Frameworks, die viele der bestehenden Probleme lösen würden, allerdings ist bisher nicht abzusehen, dass diese auch in der Praxis Anwendung finden.
 
